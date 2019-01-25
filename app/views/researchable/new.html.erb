@@ -1,0 +1,46 @@
+<header>
+  <%= render partial: "render/nav" %>
+</header>
+
+<div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+  <div class="Post-Screen">
+    <h2 class="mt-5">投稿画面</h2>
+    <hr class="mt-0 mb-5">
+  </div>
+</div>
+
+  <div class="contents row" style="display: block; text-align: center; background: rgb(248, 249, 250); padding: 75px 0px; margin: 0px 150px;>
+      <%= form_tag('/researchable', method: :post) do %>
+    <div class="Report">
+      <div style="margin-bottom: 25px;">
+        <label>実験名</label>
+        <input placeholder="実験名" type="text" id="name">
+        <label>実験日時</label>
+        <input placeholder="実験日時" type="text" id="time">
+      </div>
+
+      <div style="margin-bottom: 25px;">
+        <label>実験担当者</label>
+        <input placeholder="実験担当者" type="text" id="ThePerson">
+        <label>実験画像</label>
+        <input placeholder="実験画像URL" type="text" id="image">
+      </div>
+
+      <div>
+        <label>実験概要</label>
+        <textarea placeholder="実験概要" type="text" id="procedure" rows="10" cols="40" ></textarea>
+      </div>
+      <div>
+        <label>実験結果</label>
+        <textarea placeholder="実験結果" id="result" rows="10" cols="40"></textarea>
+      </div>
+      <input type="submit" value="実験結果を投稿する">
+    </div>
+    <% end %>
+  </div>
+
+<footer>
+  <%= render partial: "render/footer" %>
+</footer>
+
+

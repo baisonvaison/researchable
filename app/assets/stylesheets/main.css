@@ -1,0 +1,83 @@
+/*---------ログイン画面---------*/
+.menutitle{
+  font-size: 46px;
+  margin: 0px 0px 100px;
+  font-family: 'Open+Sans', serif;
+}
+
+#P-Login{
+  background-size:cover;
+  padding: 100px 0px 125px;
+}
+
+/*---------共通パーツ---------*/
+/*ヘッダー（ナビゲーション）の調整*/
+header{
+  margin-bottom: 175px;
+}
+
+.navbar{
+  padding: 0px 0px;
+}
+
+.primary-nav1 {
+  letter-spacing: 10px;
+  padding-left: 75px;
+}
+
+.primary-nav2 {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex; /*Android2.3~*/
+  display: -ms-flexbox; /*IE9*/
+  line-height: 65px;
+  letter-spacing: 6px;
+  justify-content: space-around;
+  padding-left: 50px;
+}
+
+.primary-nav2 a {
+    display: block;
+    padding: 0 1.36em;
+    color: black!important;
+    padding: 0px 30px;
+}
+.primary-nav2 a:hover {
+    background: rgb(240, 240, 240);
+}
+
+.nav-title, .nav-link{
+  color: black!important;
+}
+
+.nav-item{
+  padding: 15px 25px;
+}
+
+.nav-link a:hover {
+  padding: 0px 75px;
+}
+
+
+/*---------ホーム画面---------*/
+/*全体の幅調整*/
+.Home{
+  padding: 0px 100px;
+}
+
+/*ナビゲーションリンク*/
+
+
+
+/*---------投稿編集---------*/
+/*投稿画面*/
+.Post-Screen{
+  padding: 0px 100px;
+}
+
+
+
+
+
+
+

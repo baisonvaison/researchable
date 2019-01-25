@@ -1,0 +1,48 @@
+<main class="Login-content">
+  <article>
+    <section id="P-Login" style="background:url(<%= asset_path "Login/login.jpg" %>);padding: 100px 0px 300px;">
+      <h1 class="menutitle text-center" style="margin-bottom: 75px;"><strong>RESEARCHABLE</strong></h1>
+      <div class="Opacity-CONTACT">
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-2"></div>
+            <div class="col-10">
+              <form>
+                <div class="form-group form-row">
+                  <label class="col-md-2 col-form-label text-md-left" for="Q_Name">名前</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="Q_Name">
+                  </div>
+                </div>
+                <div class="form-group form-row">
+                  <label class="col-md-2 col-form-label text-md-left" for="Q_University">大学名</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="Q_Name">
+                  </div>
+                </div>
+                <div class="form-group form-row">
+                  <label class="col-md-2 col-form-label text-md-left" for="Q_Department">学部学科</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="Q_Name">
+                  </div>
+                </div>
+                <div class="form-group form-row">
+                  <label class="col-md-2 col-form-label text-md-left" for="Q_Password">研究室パスワード</label>
+                  <div class="col-md-5">
+                    <input type="email" class="form-control" id="Q_Mail">
+                  </div>
+                </div>
+                <div class="register col-9 text-center" style="display: block; text-align: center;">
+                  <button type="submit" class="btn btn-outline-primary">
+                <%= link_to '新規登録する', '/login' %></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>                <!-- 全体を囲むコンテナ -->
+      </div>
+    </section>
+  </article>
+</main>
+
+

@@ -59,7 +59,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-#Heroku uses PostgreSQL
+#Heroku needs PostgreSQL
 group :production do
   gem 'pg', '0.20.0'
 end

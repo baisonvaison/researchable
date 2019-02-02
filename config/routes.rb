@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   root 'protocols#new'
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Initial
   #ログイン＆新規登録画面
     #root 'users#index'
     get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'

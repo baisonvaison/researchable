@@ -1,0 +1,42 @@
+<main class="Login-content wf-roundedmplus1">
+  <article>
+    <section id="P-ADMIN">
+      <div class="Opacity-ADMIN" style="padding: 75px 0px 150px;">
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <h1 class="text-center wf-roundedmplus1c" style="font-size: 64px;letter-spacing: 5.5px;"><strong>Researchable</strong></h1>
+          <h5 class="text-center wf-roundedmplus1c" style="margin-bottom: 100px;">研究者の時間は、研究の為に・・・</h5>
+          <div class="row justify-content-center">
+            <div class="col-2"></div>
+            <div class="col-10">
+              <form>
+                <div class="form-group form-row">
+                  <label class="col-md-2 col-form-label text-md-left mb-4" for="Q_Name ">email</label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="Q_Name">
+                  </div>
+                </div>
+                <div class="form-group form-row mb-5">
+                  <label class="col-md-2 col-form-label text-md-left" for="Q_Mail">パスワード</label>
+                  <div class="col-md-6">
+                    <input type="email" class="form-control" id="Q_Mail">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-9 text-center">
+                    <button type="submit" class="btn btn-outline-primary" style="margin-right: 75px;">
+                      <%= link_to 'ログイン', '/labo/show' %></button>
+                    <button type="submit" class="btn btn-outline-primary">
+                      <%= link_to '新規登録画面', '/login/new' %>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>                <!-- 全体を囲むコンテナ -->
+      </div>
+    </section>
+  </article>
+</main>
+
+

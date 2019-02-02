@@ -1,0 +1,56 @@
+<nav>
+
+<%= render partial: "render/nav1" %>
+
+</nav>
+
+<main class="ADMIN-content">
+  <article>
+    <section id="P-ADMIN">
+      <div class="Opacity-ADMIN" style="padding-top: 50px;">
+      <h1 class="menutitle text-center" style="margin-bottom: 75px;"><strong>hogehoge研究室</strong></h1>
+      <div class="container-fluid" >        <!-- 全体を囲むコンテナ -->
+        <div class="row">
+          <div class="col-md-12 mt-4 mt-md-0">
+
+            <div class="card-deck">
+
+                  <div class="card icon">
+                    <div class="card-body">
+                      <h5 class="card-text text-center">
+                      <%= link_to '/custom' do%>
+                      <i class="far fa-school" style="background-color: #0e59cc;"></i>カスタムプロトコル
+                      <% end %>
+                      </h5>
+                    </div>
+                  </div>
+
+                  <div class="card icon">
+                    <div class="card-body">
+                      <h5 class="card-text text-center">
+                        <%= link_to '/experiment' do%>
+                        <i class="far fa-book" style="background-color: #31d413;"></i>実験結果</span>
+                        <% end %>
+                      </h5>
+                    </div>
+                  </div>
+
+                  <div class="card icon">
+                    <div class="card-body">
+                      <h5 class="card-text text-center">
+                        <%= link_to '/user' do%>
+                        <i class="fas fa-flask" style="background-color: #ffa310;"></i>所属メンバー
+                        <% end %>
+                      </h5>
+                    </div>
+                  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>                   <!-- 全体を囲むコンテナ -->
+      </div>
+    </section>
+  </article>
+</main>
+

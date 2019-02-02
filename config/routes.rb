@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'protocols#new'
 
+
   #ログイン＆新規登録画面
     #root 'users#index'
     get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'
@@ -43,6 +44,11 @@ Rails.application.routes.draw do
     post 'experiment/new' => 'experiment#create', as: "experiments"
 
   #研究室所属一覧
+
+  root 'pages#index'
+  get 'pages/show'
+    get  'login' => 'login#index'
+    get  'login/new'  =>  'login#new'
     get  'user' => 'user#index'
     get  'user/show' => 'user#show'
 

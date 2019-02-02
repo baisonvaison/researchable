@@ -1,14 +1,99 @@
+/*--------------文字フォント----------------*/
+
+.wf-roundedmplus1c {
+  font-family: "M PLUS Rounded 1c";
+}
+
+/*--------------管理画面の背景写真----------------*/
+/*研究室新規登録画面の背景写真*/
+#P-LABO{
+  background-size:cover;
+  background-position:center;
+}
+
+.Opacity-ADMIN{
+  background: rgba(255,255,255, 0.5);
+  padding-bottom: 125px;
+}
+
+
+/*メンバー新規登録の背景写真*/
+#P-MEMBER{
+  background-size:cover;
+}
+
+.Opacity-MEMBER{
+  background: rgba(255,255,255, 0.5);
+  padding-bottom: 175px;
+}
+
+
+/*管理画面全体の背景写真*/
+#P-ADMIN{
+  background:url(Admin/admin1.jpg);
+  background-size:cover;
+  background-position:center;
+}
+
+.Opacity-ADMIN{
+  background: rgba(255,255,255, 0.5);
+  padding-bottom: 100px;
+}
+
+
+
+#P-ADMIN1{
+  background:url(Admin/admin1.jpg);
+  background-attachment: fixed;
+  background-position: top;
+}
+
+.Opacity-ADMIN1{
+  background: rgba(255,255,255, 0.5);
+}
+
+
+
+
+
+
+/*---------------研究室パス発行ページ---------------*/
+
+
+
+
+
+
+
+/*---------スタンダードプロトコル新規作成----------*/
+
+
+
+
+
+
+
+
+
+
 /*---------ログイン画面---------*/
 .menutitle{
   font-size: 46px;
-  margin: 0px 0px 100px;
-  font-family: 'Open+Sans', serif;
+  padding-top: 100px;
+  margin-bottom: 100px;
+  font-family: "M PLUS Rounded 1c";
 }
 
-#P-Login{
-  background-size:cover;
-  padding: 100px 0px 125px;
+
+/*---------ログイン画面---------*/
+.show-password{
+  margin-top: 100px;
+  font-size: 30px;
 }
+
+
+
+
 
 /*---------共通パーツ---------*/
 /*ヘッダー（ナビゲーション）の調整*/
@@ -22,7 +107,7 @@ header{
 
 .primary-nav1 {
   letter-spacing: 10px;
-  padding-left: 75px;
+  padding-left: 50px;
 }
 
 .primary-nav2 {
@@ -30,7 +115,7 @@ header{
   display: -webkit-box;
   display: -webkit-flex; /*Android2.3~*/
   display: -ms-flexbox; /*IE9*/
-  line-height: 65px;
+  line-height: 35px;
   letter-spacing: 6px;
   justify-content: space-around;
   padding-left: 50px;
@@ -65,6 +150,33 @@ header{
   padding: 0px 100px;
 }
 
+
+
+
+/*---------管理画面トップ---------*/
+/* アイコン */
+
+.icon{
+  border: 0px;
+  height: 275px;
+  width: auto;
+  margin: 0px 25px;
+  background: rgba(255,255,255,0);
+}
+
+.icon i{
+  display: block;
+  font-size: 75px;
+  width: 125px;
+  line-height: 125px;
+  background-color: #ecc952;
+  color: #ffffff;
+  margin: 10px auto;
+  margin-bottom: 10px;
+}
+
+
+
 /*ナビゲーションリンク*/
 
 
@@ -74,6 +186,82 @@ header{
 .Post-Screen{
   padding: 0px 100px;
 }
+
+/*研究室一覧*/
+.bg-info{
+  margin:20px 50px!important;
+}
+
+/*-------------------BUSINESS---------------------*/
+
+.BUSINESS2-content{
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* 文字幅の調整*/
+
+.Business-text{
+  font-size: 22px;
+  line-height: 2.5;
+}
+
+
+/* 事業内容全体の調整*/
+
+
+
+
+/* 事業内容上部3(幅の調整)*/
+.card-deck3{
+  margin: 50px 100px;
+}
+
+@media(max-width: 1280px){
+  .card-deck3{
+    margin: 50px 125px;
+  }
+}
+
+@media(max-width: 1140px){
+  .card-deck3{
+    margin: 50px 75px;
+  }
+}
+
+@media(max-width: 992px){
+  .card-deck3{
+    margin: 50px 50px;
+  }
+}
+
+/* 事業内容上部3(カードの横幅調整)*/
+
+.card-deck .card3{
+  margin: 0px 45px;
+}
+
+@media(max-width: 1280px){
+  .card-deck .card3{
+  margin:0px 30px;
+}
+}
+
+@media(max-width: 1140px){
+  .card-deck .card3{
+  margin: 0px 15px 35px;
+}
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   #ログイン＆新規登録画面
-    get  'users/sign_in' => 'users#index'
-    get  'users/sign_up' => 'users#new'
+    get  'users' => 'users#index'
+    get  'users/new' => 'users#new'
     get  'thanks' => 'thanks#index'
 
    #管理画面トップ

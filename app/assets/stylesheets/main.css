@@ -41,6 +41,11 @@
   padding: 75px 0px 175px;
 }
 
+.BGP-Opacity6{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 25px;
+}
+
 /*ログイン前の「researchable」メニュータイトル*/
 .R-TitleName{
   font-size: 64px;

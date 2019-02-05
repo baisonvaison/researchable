@@ -4,12 +4,19 @@
   font-family: "M PLUS Rounded 1c";
 }
 
-/*--------------管理画面の背景写真----------------*/
-/*研究室新規登録画面の背景写真*/
+/*----------管理画面の背景写真----------*/
+#P-ADMIN{
+  background:url(Admin/background.jpg);
+  background-attachment: fixed;
+  background-position: top;
+}
+
+
 #P-LABO{
   background-size:cover;
   background-position:center;
 }
+
 
 .Opacity-ADMIN{
   background: rgba(255,255,255, 0.5);

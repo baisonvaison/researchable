@@ -1,18 +1,149 @@
-/*--------------文字フォント----------------*/
-
+/*--------------画面遷移共通----------------*/
+/*文字フォント*/
 .wf-roundedmplus1c {
   font-family: "M PLUS Rounded 1c";
 }
+/*Googleフォントの「M PLUS Rounded 1c（自家製フォント工房）を使用*/
 
-/*----------管理画面の背景写真----------*/
-#P-ADMIN{
+
+/*researchableの背景写真*/
+#BGP-researchable{
   background:url(Admin/background.jpg);
   background-attachment: fixed;
   background-position: top;
 }
+/*BGP=BackGroundPictureの略*/
 
 
-#P-LABO{
+/*背景写真の透過と縦幅の調整*/
+.BGP-Opacity1{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 125px;
+}
+
+.BGP-Opacity2{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 75px;
+}
+
+.BGP-Opacity3{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 50px;
+}
+
+.BGP-Opacity4{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 150px;
+}
+
+.BGP-Opacity5{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 175px;
+}
+
+/*ログイン前の「researchable」メニュータイトル*/
+.R-TitleName{
+  font-size: 64px;
+  letter-spacing: 5.5px;
+}
+/*「R」はresearchableの略*/
+
+
+/*ログイン後の「researchable」管理画面メニュータイトル*/
+.R-TitleName2{
+  font-size: 50px;
+  letter-spacing: 5.5px;
+  margin-bottom: 75px;
+
+}
+
+/*ログイン後の「researchable」個別管理画面メニュータイトル*/
+.R-TitleName3{
+  font-size: 36px;
+  letter-spacing: 5.5px;
+  margin-bottom: 75px;
+}
+
+/*アイコン右横と文字のブランク調整*/
+.icon-blank{
+  margin-right: 10px;
+}
+
+
+
+
+
+/*--------研究室ページへのログイン画面----------*/
+
+
+/*------------メンバー新規登録画面-----------*/
+
+
+/*------------研究室管理画面トップ-----------*/
+/*アイコンのレイアウト調整*/
+.icon{
+  border: 0px;
+  height: 275px;
+  width: auto;
+  margin-right: 35px!important;
+  margin-left: 35px!important;
+  background: rgba(255,255,255,0);
+  border: 1px solid;
+  border-color: rgb(60,135,219);
+}
+
+/*アイコンの大きさ*/
+.icon-size{
+  width: 150px;
+  height: auto;
+}
+
+.icon-FontColor{
+  color: rgb(60,135,219);
+}
+
+/*------------所属メンバー一覧-----------*/
+/*メンバーのボックス幅調整*/
+.Member-Box{
+  width: 400px;
+  padding-right: 75px!important;
+  background: rgba(255, 251, 246, 0.61)!important;
+}
+
+
+/*アバター画像の編集*/
+.Member-Avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+/*---------カスタムプロトコル一覧---------*/
+.Custom-Box{
+  width: 450px;
+  background: rgba(255, 251, 246, 0.61)!important;
+}
+
+/*---------実験結果一覧---------*/
+.Result-Box{
+  width: 450px;
+  background: rgba(255, 251, 246, 0.61)!important;
+}
+
+/*実験結果画像の表示*/
+.Result-Img{
+  width: 100px;
+  height: 100px;
+}
+
+/*---------ユーザー個別ページ---------*/
+
+
+
+
+
+
+/*#P-LABO{
   background-size:cover;
   background-position:center;
 }
@@ -22,7 +153,7 @@
   background: rgba(255,255,255, 0.5);
   padding-bottom: 125px;
 }
-
+*/
 
 /*メンバー新規登録の背景写真*/
 #P-MEMBER{
@@ -36,28 +167,28 @@
 
 
 /*管理画面全体の背景写真*/
-#P-ADMIN{
+/*#P-ADMIN{
   background:url(Admin/admin1.jpg);
   background-size:cover;
   background-position:center;
-}
+}*/
 
-.Opacity-ADMIN{
+/*.Opacity-ADMIN{
   background: rgba(255,255,255, 0.5);
   padding-bottom: 100px;
 }
+*/
 
 
-
-#P-ADMIN1{
+/*#P-ADMIN1{
   background:url(Admin/admin1.jpg);
   background-attachment: fixed;
   background-position: top;
-}
+}*/
 
-.Opacity-ADMIN1{
+/*.Opacity-ADMIN1{
   background: rgba(255,255,255, 0.5);
-}
+}*/
 
 
 
@@ -84,12 +215,12 @@
 
 
 /*---------ログイン画面---------*/
-.menutitle{
+/*.menutitle{
   font-size: 46px;
   padding-top: 100px;
   margin-bottom: 100px;
   font-family: "M PLUS Rounded 1c";
-}
+}*/
 
 
 /*---------ログイン画面---------*/
@@ -163,7 +294,7 @@ header{
 /*---------管理画面トップ---------*/
 /* アイコン */
 
-.icon{
+/*.icon{
   border: 0px;
   height: 275px;
   width: auto;
@@ -181,7 +312,7 @@ header{
   color: #ffffff;
   margin: 10px auto;
   margin-bottom: 10px;
-}
+}*/
 
 
 
@@ -202,64 +333,24 @@ header{
 
 /*-------------------BUSINESS---------------------*/
 
-.BUSINESS2-content{
+/*.BUSINESS2-content{
   max-width: 1400px;
   margin: auto;
-}
+}*/
 
 /* 文字幅の調整*/
 
-.Business-text{
+/*.Business-text{
   font-size: 22px;
   line-height: 2.5;
 }
-
+*/
 
 /* 事業内容全体の調整*/
 
 
 
 
-/* 事業内容上部3(幅の調整)*/
-.card-deck3{
-  margin: 50px 100px;
-}
-
-@media(max-width: 1280px){
-  .card-deck3{
-    margin: 50px 125px;
-  }
-}
-
-@media(max-width: 1140px){
-  .card-deck3{
-    margin: 50px 75px;
-  }
-}
-
-@media(max-width: 992px){
-  .card-deck3{
-    margin: 50px 50px;
-  }
-}
-
-/* 事業内容上部3(カードの横幅調整)*/
-
-.card-deck .card3{
-  margin: 0px 45px;
-}
-
-@media(max-width: 1280px){
-  .card-deck .card3{
-  margin:0px 30px;
-}
-}
-
-@media(max-width: 1140px){
-  .card-deck .card3{
-  margin: 0px 15px 35px;
-}
-}
 
 
 

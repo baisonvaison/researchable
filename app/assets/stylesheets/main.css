@@ -59,7 +59,6 @@
   font-size: 50px;
   letter-spacing: 5.5px;
   margin-bottom: 75px;
-
 }
 
 /*ログイン後の「researchable」個別管理画面メニュータイトル*/
@@ -122,6 +121,12 @@ header{
 
 
 /*--------研究室ページへのログイン画面----------*/
+
+
+/*--------登録完了画面----------*/
+.Thanks-text{
+  line-height: 1.75
+}
 
 
 /*------------メンバー新規登録画面-----------*/
@@ -209,6 +214,9 @@ header{
   margin:20px 50px!important;
 }
 
+a:hover{
+  background: rgba(247, 247, 247, 0.43)
+}
 
 
 

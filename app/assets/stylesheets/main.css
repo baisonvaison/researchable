@@ -76,6 +76,49 @@
 
 
 
+/*---------ナビゲーション---------*/
+/*ヘッダー（ナビゲーション）の調整*/
+header{
+  margin-bottom: 175px;
+}
+
+.navbar{
+  padding: 0px 0px;
+}
+
+.primary-nav1 {
+  letter-spacing: 10px;
+  padding-left: 50px;
+}
+
+.primary-nav2 {
+  display: block;
+  line-height: 35px;
+  letter-spacing: 6px;
+  padding-left: 10%;
+}
+
+.primary-nav2 a {
+    display: block;
+    padding: 0 1.36em;
+    color: black!important;
+    padding: 0px 30px;
+}
+.primary-nav2 a:hover {
+    background: rgb(240, 240, 240);
+}
+
+.nav-title, .nav-link{
+  color: black!important;
+}
+
+.nav-item{
+  padding: 15px 25px;
+}
+
+.nav-link a:hover {
+  padding: 0px 75px;
+}
 
 
 /*--------研究室ページへのログイン画面----------*/
@@ -107,12 +150,30 @@
   color: rgb(60,135,219);
 }
 
-/*------------所属メンバー一覧-----------*/
+
+/*----------Box共通---------*/
+/*クリック範囲指定*/
+.A-Tag{
+  display: block;
+  overflow: hidden;
+  text-decoration: none!important;
+}
+
+.A-TagEffect{
+  color: black;
+  overflow: hidden;
+  margin: 1rem 75px 1rem 1rem;
+}
+
+
+
+/*----------所属メンバー一覧---------*/
+
 /*メンバーのボックス幅調整*/
 .Member-Box{
   width: 400px;
-  padding-right: 75px!important;
   background: rgba(255, 251, 246, 0.61)!important;
+  padding: 0px!important;
 }
 
 
@@ -141,229 +202,10 @@
   height: 100px;
 }
 
-/*---------ユーザー個別ページ---------*/
-
-
-
-
-
-
-/*#P-LABO{
-  background-size:cover;
-  background-position:center;
-}
-
-
-.Opacity-ADMIN{
-  background: rgba(255,255,255, 0.5);
-  padding-bottom: 125px;
-}
-*/
-
-/*メンバー新規登録の背景写真*/
-#P-MEMBER{
-  background-size:cover;
-}
-
-.Opacity-MEMBER{
-  background: rgba(255,255,255, 0.5);
-  padding-bottom: 175px;
-}
-
-
-/*管理画面全体の背景写真*/
-/*#P-ADMIN{
-  background:url(Admin/admin1.jpg);
-  background-size:cover;
-  background-position:center;
-}*/
-
-/*.Opacity-ADMIN{
-  background: rgba(255,255,255, 0.5);
-  padding-bottom: 100px;
-}
-*/
-
-
-/*#P-ADMIN1{
-  background:url(Admin/admin1.jpg);
-  background-attachment: fixed;
-  background-position: top;
-}*/
-
-/*.Opacity-ADMIN1{
-  background: rgba(255,255,255, 0.5);
-}*/
-
-
-
-
-
-
-/*---------------研究室パス発行ページ---------------*/
-
-
-
-
-
-
-
-/*---------スタンダードプロトコル新規作成----------*/
-
-
-
-
-
-
-
-
-
-
-/*---------ログイン画面---------*/
-/*.menutitle{
-  font-size: 46px;
-  padding-top: 100px;
-  margin-bottom: 100px;
-  font-family: "M PLUS Rounded 1c";
-}*/
-
-
-/*---------ログイン画面---------*/
-.show-password{
-  margin-top: 100px;
-  font-size: 30px;
-}
-
-
-
-
-
-/*---------共通パーツ---------*/
-/*ヘッダー（ナビゲーション）の調整*/
-header{
-  margin-bottom: 175px;
-}
-
-.navbar{
-  padding: 0px 0px;
-}
-
-.primary-nav1 {
-  letter-spacing: 10px;
-  padding-left: 50px;
-}
-
-.primary-nav2 {
-  display: flex;
-  display: -webkit-box;
-  display: -webkit-flex; /*Android2.3~*/
-  display: -ms-flexbox; /*IE9*/
-  line-height: 35px;
-  letter-spacing: 6px;
-  justify-content: space-around;
-  padding-left: 50px;
-}
-
-.primary-nav2 a {
-    display: block;
-    padding: 0 1.36em;
-    color: black!important;
-    padding: 0px 30px;
-}
-.primary-nav2 a:hover {
-    background: rgb(240, 240, 240);
-}
-
-.nav-title, .nav-link{
-  color: black!important;
-}
-
-.nav-item{
-  padding: 15px 25px;
-}
-
-.nav-link a:hover {
-  padding: 0px 75px;
-}
-
-
-/*---------ホーム画面---------*/
-/*全体の幅調整*/
-.Home{
-  padding: 0px 100px;
-}
-
-
-
-
-/*---------管理画面トップ---------*/
-/* アイコン */
-
-/*.icon{
-  border: 0px;
-  height: 275px;
-  width: auto;
-  margin-right: 35px!important;
-  margin-left: 35px!important;
-  background: rgba(255,255,255,0);
-}
-
-.icon i{
-  display: block;
-  font-size: 75px;
-  width: 125px;
-  line-height: 125px;
-  background-color: #ecc952;
-  color: #ffffff;
-  margin: 10px auto;
-  margin-bottom: 10px;
-}*/
-
-
-
-/*ナビゲーションリンク*/
-
-
-
-/*---------投稿編集---------*/
-/*投稿画面*/
-.Post-Screen{
-  padding: 0px 100px;
-}
-
 /*研究室一覧*/
 .bg-info{
   margin:20px 50px!important;
 }
-
-/*-------------------BUSINESS---------------------*/
-
-/*.BUSINESS2-content{
-  max-width: 1400px;
-  margin: auto;
-}*/
-
-/* 文字幅の調整*/
-
-/*.Business-text{
-  font-size: 22px;
-  line-height: 2.5;
-}
-*/
-
-/* 事業内容全体の調整*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

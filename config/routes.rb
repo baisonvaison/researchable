@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   #ログイン＆新規登録画面
+    root 'users#index'
     get  'users' => 'users#index'
     get  'users/new' => 'users#new'
     get  'thanks' => 'thanks#index'
 
-   #管理画面トップ
+     #管理画面トップ
     get  'admin' => 'admin#index'
+
 
    #研究室新規登録ページ&研究室ページ
     get  'labo' => 'labo#index'

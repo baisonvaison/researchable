@@ -73,6 +73,12 @@
   margin-right: 10px;
 }
 
+/*--------aタグの編集--------*/
+a:hover{
+  background: rgba(247, 247, 247, 0.43);
+  text-decoration: none;
+}
+
 
 
 /*---------ナビゲーション---------*/
@@ -212,10 +218,6 @@ header{
 /*研究室一覧*/
 .bg-info{
   margin:20px 50px!important;
-}
-
-a:hover{
-  background: rgba(247, 247, 247, 0.43)
 }
 
 

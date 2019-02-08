@@ -1,7 +1,7 @@
 class Protocol < ApplicationRecord
   # belongs_to :user
   # belongs_to :affiliation
-  has_many :procedures, inverse_of: :protocol
+  has_many :procedures, inverse_of: :protocolprotocol, dependent: :destroy
   has_many :experiments
 
   accepts_nested_attributes_for :procedures, allow_destroy: true

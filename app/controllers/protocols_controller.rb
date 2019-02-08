@@ -1,15 +1,10 @@
 class ProtocolsController < ApplicationController
-<<<<<<< HEAD
-
-=======
->>>>>>> feat: create protocol function (before introduce Ajax)
   def index
   end
 
   def show
     protocol_id = params[:id]
     @protocol = Protocol.find(protocol_id)
-<<<<<<< HEAD
     @produces = Procedures.where(protocol_id: protocol_id)
   end
 
@@ -41,6 +36,11 @@ class ProtocolsController < ApplicationController
   private
   def create_params
     params.require(:protocol).permit(:title,  procedures_attributes: [:text, :_destroy])
+  end
+
+  private
+  def protocol_create_params
+    params.require(:protocol).permit(:title, procedures_attributes: [:id, :file, :_destroy])
   end
 
 end

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>プロトコル新規作成</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title_wrapper">
+      <h1>プロトコル新規作成</h1>
+    </div>
+    <div class="form_wrapper">
+      <%= form_with model: @protocol, local: true do |f| %>
+        <div class="form_content">
+          <p>プロトコル名</p>
+          <%= f.text_field :title %>
+        </div>
+        <%= f.fields_for :procedures do |e| %>
+          <p>手順</p>
+          <div>
+            <%= render 'procedure_fields', f: e %>
+          </div>
+          <div>
+            <%= link_to_add_association "手順を追加", f, :procedures %>
+          </div>
+        <% end %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

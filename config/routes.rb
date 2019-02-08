@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
   end
 
+  resources :protocols, only: [:index, :show, :new, :create, :destroy] do
+    resources :procedures, only: [:index, :show, :new, :create]
+  end
+
 
   #ログイン＆新規登録画面
     #root 'users#index'
@@ -35,6 +39,9 @@ Rails.application.routes.draw do
     get  'experiment' => 'experiment#index'
     get  'experiment/show' => 'experiment#show'
     get  'experiment/new' => 'experiment#new'
+
+  root 'protocols#new'
+  devise_for :users
 
   #研究室所属一覧
     get  'user' => 'user#index'

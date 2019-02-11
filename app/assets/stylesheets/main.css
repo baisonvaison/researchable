@@ -1,16 +1,87 @@
-/*---------ログイン画面---------*/
-.menutitle{
-  font-size: 46px;
-  margin: 0px 0px 100px;
-  font-family: 'Open+Sans', serif;
+/*--------------画面遷移共通----------------*/
+/*文字フォント*/
+.wf-roundedmplus1c {
+  font-family: "M PLUS Rounded 1c";
+}
+/*Googleフォントの「M PLUS Rounded 1c（自家製フォント工房）を使用*/
+
+
+/*researchableの背景写真*/
+#BGP-researchable{
+  background:url(Admin/background.jpg);
+  background-attachment: fixed;
+  background-position: top;
+}
+/*BGP=BackGroundPictureの略*/
+
+
+/*背景写真の透過と縦幅の調整*/
+.BGP-Opacity1{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 125px;
 }
 
-#P-Login{
-  background-size:cover;
-  padding: 100px 0px 125px;
+.BGP-Opacity2{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 75px;
 }
 
-/*---------共通パーツ---------*/
+.BGP-Opacity3{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 50px;
+}
+
+.BGP-Opacity4{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 150px;
+}
+
+.BGP-Opacity5{
+  background: rgba(255,255,255, 0.5);
+  padding: 75px 0px 175px;
+}
+
+.BGP-Opacity6{
+  background: rgba(255,255,255, 0.5);
+  padding: 125px 0px 25px;
+}
+
+/*ログイン前の「researchable」メニュータイトル*/
+.R-TitleName{
+  font-size: 64px;
+  letter-spacing: 5.5px;
+}
+/*「R」はresearchableの略*/
+
+
+/*ログイン後の「researchable」管理画面メニュータイトル*/
+.R-TitleName2{
+  font-size: 50px;
+  letter-spacing: 5.5px;
+  margin-bottom: 75px;
+}
+
+/*ログイン後の「researchable」個別管理画面メニュータイトル*/
+.R-TitleName3{
+  font-size: 36px;
+  letter-spacing: 5.5px;
+  margin-bottom: 75px;
+}
+
+/*アイコン右横と文字のブランク調整*/
+.icon-blank{
+  margin-right: 10px;
+}
+
+/*--------aタグの編集--------*/
+a:hover{
+  background: rgba(247, 247, 247, 0.43);
+  text-decoration: none;
+}
+
+
+
+/*---------ナビゲーション---------*/
 /*ヘッダー（ナビゲーション）の調整*/
 header{
   margin-bottom: 175px;
@@ -22,18 +93,14 @@ header{
 
 .primary-nav1 {
   letter-spacing: 10px;
-  padding-left: 75px;
+  padding-left: 50px;
 }
 
 .primary-nav2 {
-  display: flex;
-  display: -webkit-box;
-  display: -webkit-flex; /*Android2.3~*/
-  display: -ms-flexbox; /*IE9*/
-  line-height: 65px;
+  display: block;
+  line-height: 35px;
   letter-spacing: 6px;
-  justify-content: space-around;
-  padding-left: 50px;
+  padding-left: 10%;
 }
 
 .primary-nav2 a {
@@ -59,21 +126,100 @@ header{
 }
 
 
-/*---------ホーム画面---------*/
-/*全体の幅調整*/
-.Home{
-  padding: 0px 100px;
+/*--------研究室ページへのログイン画面----------*/
+
+
+/*--------登録完了画面----------*/
+.Thanks-text{
+  line-height: 1.75
 }
 
-/*ナビゲーションリンク*/
+
+/*------------メンバー新規登録画面-----------*/
 
 
-
-/*---------投稿編集---------*/
-/*投稿画面*/
-.Post-Screen{
-  padding: 0px 100px;
+/*------------研究室管理画面トップ-----------*/
+/*アイコンのレイアウト調整*/
+.icon{
+  border: 0px;
+  height: 275px;
+  width: auto;
+  margin-right: 35px!important;
+  margin-left: 35px!important;
+  background: rgba(255,255,255,0);
+  border: 1px solid;
+  border-color: rgb(60,135,219);
 }
+
+/*アイコンの大きさ*/
+.icon-size{
+  width: 150px;
+  height: auto;
+}
+
+.icon-FontColor{
+  color: rgb(60,135,219);
+}
+
+
+/*----------Box共通---------*/
+/*クリック範囲指定*/
+.A-Tag{
+  display: block;
+  overflow: hidden;
+  text-decoration: none!important;
+}
+
+.A-TagEffect{
+  color: black;
+  overflow: hidden;
+  margin: 1rem 75px 1rem 1rem;
+}
+
+
+
+/*----------所属メンバー一覧---------*/
+
+/*メンバーのボックス幅調整*/
+.Member-Box{
+  width: 400px;
+  background: rgba(255, 251, 246, 0.61)!important;
+  padding: 0px!important;
+}
+
+
+/*アバター画像の編集*/
+.Member-Avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+/*---------カスタムプロトコル一覧---------*/
+.Custom-Box{
+  width: 450px;
+  background: rgba(255, 251, 246, 0.61)!important;
+  padding: 0px!important;
+}
+
+/*---------実験結果一覧---------*/
+.Result-Box{
+  width: 450px;
+  background: rgba(255, 251, 246, 0.61)!important;
+  padding: 0px!important;
+}
+
+/*実験結果画像の表示*/
+.Result-Img{
+  width: 100px;
+  height: 100px;
+}
+
+/*研究室一覧*/
+.bg-info{
+  margin:20px 50px!important;
+}
+
 
 
 

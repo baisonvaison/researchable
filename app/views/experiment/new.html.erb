@@ -1,0 +1,87 @@
+<nav>
+
+<%= render partial: "render/nav1" %>
+
+</nav>
+
+<main class="MakeResult-screen wf-roundedmplus1c">
+  <article>
+    <section id="BGP-researchable">
+       <div class="BGP-Opacity6">
+        <div class="container">        <!-- 全体を囲むコンテナ -->
+        <div class="row justify-content-center">
+          <div class="col-0"></div>
+            <div class="col-11">
+              <div class="col-md-8">
+                <h1 class="mt-4 mb-5"><img class="icon-blank" src="/assets/Admin/result.png"><strong>実験結果作成</strong></h1>
+              </div>
+            </div>
+          <div class="col-0"></div>
+            <div class="col-10">
+              <form>
+                <div class="form-group mb-5">
+                  <label class="col-md-4 col-form-label mb-2" for="B_Name">タイトル（実験名称）</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="B_Name">
+                  </div>
+                </div>
+
+                <div class="form-group mb-5">
+                  <label class="col-md-4 col-form-label mb-2" for="B_Name">画像資料</label>
+                  <div class="col-md-5">
+                    <button class="btn btn-outline-primary">ファイルを選択</button>
+                  </div>
+                </div>
+
+                <div class="form-group mb-5">
+                  <label class="col-md-4 col-form-label mb-2" for="B_Name">実験実施日</label>
+                  <div class="col-md-5">
+                    <a id="year"></a><a id="month"></a><a id="day"></a>
+                  </div>
+                </div>
+
+                 <div class="form-group mb-5">
+                    <label class="col-md-3 col-form-label" for="B_Name">実験の概要</label>
+                    <div class="col-md-9" style="max-width: 100%;">
+                      <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
+                    </div>
+                  </div>
+
+                <div class="form-group col-md-5 mb-5">
+                  <label for="receipt">利用したプロトコル（選択）</label>
+                  <select class="custom-select" id="receipt">
+                    <option>選択</option>
+                    <option>hoge1</option>
+                    <option>hoge2</option>
+                    <option>hoge3</option>
+                  </select>
+                </div>
+
+                <div class="form-group mb-5">
+                  <label class="col-md-3 col-form-label" for="B_Name">実験の結果</label>
+                  <div class="col-md-9" style="max-width: 100%;">
+                    <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-5 mb-5">
+                  <label for="receipt">登録するカテゴリー（選択）</label>
+                  <select class="custom-select" id="receipt">
+                    <option>選択</option>
+                    <option>hoge1</option>
+                    <option>hoge2</option>
+                    <option>hoge3</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-outline-primary" style="margin-bottom: 50px; margin-left: 45%;">登録</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>                <!-- 全体を囲むコンテナ -->
+    </section>
+  </article>
+</main>
+
+

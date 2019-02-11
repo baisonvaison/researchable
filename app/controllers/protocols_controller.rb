@@ -1,4 +1,5 @@
 class ProtocolsController < ApplicationController
+
   def index
   end
 
@@ -36,11 +37,6 @@ class ProtocolsController < ApplicationController
   private
   def create_params
     params.require(:protocol).permit(:title,  procedures_attributes: [:text, :_destroy])
-  end
-
-  private
-  def protocol_create_params
-    params.require(:protocol).permit(:title, procedures_attributes: [:id, :file, :_destroy])
   end
 
 end

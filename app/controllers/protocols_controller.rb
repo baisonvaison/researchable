@@ -1,4 +1,5 @@
 class ProtocolsController < ApplicationController
+
   def index
   end
 
@@ -26,11 +27,16 @@ class ProtocolsController < ApplicationController
   end
 
   def create
+    protocol = Protocol.new(create_params)
+    # 以下の記述は菊池氏の作業が終わり次第戻す
+    # protocol.affiliation_id = current_user.affiliation.id
+    # protocol.user_id = current_user.id
+    protocol.save
   end
 
   private
-  def protocol_create_params
-    params.require(:protocol).permit(:title, procedures_attributes: [:id, :file, :_destroy])
+  def create_params
+    params.require(:protocol).permit(:title,  procedures_attributes: [:text, :_destroy])
   end
 
 end

@@ -9,12 +9,12 @@
       <h1>プロトコル新規作成</h1>
     </div>
     <div class="form_wrapper">
-      <%= form_with model: @protocol, local: true do |f| %>
+      <%= form_with(model: @protocol, remote: true) do |f| %>
         <div class="form_content">
           <p>プロトコル名</p>
           <%= f.text_field :title %>
         </div>
-        <%= f.fields_for :procedures do |e| %>
+        <%= f.fields :procedures do |e| %>
           <p>手順</p>
           <div>
             <%= render 'procedure_fields', f: e %>

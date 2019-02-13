@@ -2,59 +2,103 @@
   <%= render partial: "render/nav1" %>
 </nav>
 
+
 <main class="MakeCustom-screen wf-roundedmplus1c">
-    <section id="BGP-researchable">
+  <article>
+    <section id="BGP-researchable" style="">
       <div class="BGP-Opacity1" style="padding: 125px 0px 0px;">
-      <div class="container">        <!-- 全体を囲むコンテナ -->
+      <div class="container">
         <div class="row justify-content-center">
           <div class="col-0"></div>
             <div class="col-11">
               <div class="col-md-8">
-                <h1 class="mt-4 mb-5"><img src="/assets/Admin/file.png" style="margin-right: 10px;"><strong>カスタムプロトコル作成</strong></h1>
+                <h1 class="mt-4 mb-5"><img class="icon-blank" src="/assets/Admin/file.png"><strong>カスタムプロトコル作成</strong></h1>
               </div>
             </div>
-
           <div class="col-0"></div>
             <div class="col-10">
               <form>
                 <div class="form-group mb-5">
-                  <label class="col-md-4 col-form-label mb-2" for="B_Name">タイトル（プロトコルの正式名称）</label>
-                  <div class="col-md-7">
+                  <label class="col-md-8 col-form-label mb-2" for="B_Name">タイトル（カスタムプロトコルの名称）</label>
+                  <div class="col-md-8">
                     <input type="text" class="form-control" id="B_Name">
-                  </div>
-                </div>
-
-                <div class="form-group mb-5">
-                  <label class="col-md-4 col-form-label mb-2" for="B_Name">プロトコル作成日</label>
-                  <div class="col-md-5">
-                    <a id="year"></a><a id="month"></a><a id="day"></a>
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <div class="container">        <!-- 全体を囲むコンテナ -->
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
           <div class="row justify-content-center">
-          <div class="col-0"></div>
+          <div class="col-1"></div>
             <div class="col-10">
               <form>
-               <div class="form-group mb-5">
-                  <label class="col-md-3 col-form-label" for="B_Name">実験方法</label>
-                  <div class="col-md-9" style="max-width: 100%;">
-                    <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
+              <label for="receipt" class="mb-3">実際の手順</label>
+               <div class="row  mb-5">
+                  <div class="col-md-1 rounded-left Protocol-Procedure" style="">
+                    <h4>1</h4>
+                  </div>
+                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
+                  </div>
+                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <button class="btn btn-outline-primary mb-4">手順を追加
+                    </button><br>
+                    <button class="btn btn-outline-danger">手順を削除
+                    </button>
+                  </div>
+                </div>
+                <div class="row  mb-5">
+                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <h4>2</h4>
+                  </div>
+                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
+                  </div>
+                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <button class="btn btn-outline-primary mb-4">手順を追加
+                    </button><br>
+                    <button class="btn btn-outline-danger">手順を削除
+                    </button>
+                  </div>
+                </div>
+                <div class="row  mb-5">
+                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <h4>3</h4>
+                  </div>
+                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
+                  </div>
+                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <button class="btn btn-outline-primary mb-4">手順を追加
+                    </button><br>
+                    <button class="btn btn-outline-danger">手順を削除
+                    </button>
+                  </div>
+                </div>
+                <div class="row  mb-5">
+                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <h4>4</h4>
+                  </div>
+                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
+                  </div>
+                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <button class="btn btn-outline-primary mb-4">手順を追加
+                    </button><br>
+                    <button class="btn btn-outline-danger">手順を削除
+                    </button>
                   </div>
                 </div>
               </form>
-            </div>
           </div>
         </div>                <!-- 全体を囲むコンテナ -->
-        <div class="container">
+        <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-0"></div>
               <div class="col-10">
                 <form>
-                  <div class="form-group col-md-8 mb-5">
+                  <div class="form-group col-md-8 mb-4">
                     <label for="receipt">登録するカテゴリー（選択もしくは作成）</label>
                     <select class="custom-select" id="receipt">
                       <option>選択</option>
@@ -64,12 +108,6 @@
                     </select>
                   </div>
 
-                  <div class="form-group mb-5">
-                    <label class="col-md-3 col-form-label" for="B_Name">実験の結果</label>
-                    <div class="col-md-9" style="max-width: 100%;">
-                      <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
-                    </div>
-                  </div>
                   <button class="btn btn-outline-primary" style="margin: 0px auto 75px; display: block;">登録
                   </button>
               </form>
@@ -81,6 +119,12 @@
     </section>
   </article>
 </main>
+
+
+
+
+
+
 
 
 

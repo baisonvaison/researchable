@@ -99,8 +99,8 @@ header{
 .primary-nav2 {
   display: block;
   line-height: 35px;
-  letter-spacing: 6px;
-  padding-left: 10%;
+  letter-spacing: 4px;
+  padding-left: 7.5%;
 }
 
 .primary-nav2 a {
@@ -118,7 +118,7 @@ header{
 }
 
 .nav-item{
-  padding: 15px 25px;
+  padding: 15px 20px;
 }
 
 .nav-link a:hover {
@@ -151,7 +151,7 @@ header{
   border-color: rgb(60,135,219);
 }
 
-/*アイコンの大きさ*/
+/*アイコンの大きさと色*/
 .icon-size{
   width: 150px;
   height: auto;
@@ -160,6 +160,22 @@ header{
 .icon-FontColor{
   color: rgb(60,135,219);
 }
+
+
+
+
+/*アイコン２並列の横幅調整*/
+/*.card2-width{
+  margin: 0px 200px;
+}*/
+
+/*@media(max-width: 768px){
+  .card2-width{
+  margin: 0px 0px;
+}
+}*/
+
+
 
 
 /*----------Box共通---------*/
@@ -196,6 +212,11 @@ header{
 }
 
 /*---------カスタムプロトコル一覧---------*/
+.Protocol-Procedure{
+  background: rgba(255, 252, 252, 0.56);
+  padding: 20px;
+}
+
 .Custom-Box{
   width: 450px;
   background: rgba(255, 251, 246, 0.61)!important;

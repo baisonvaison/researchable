@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get  'labo/show' => 'labo#show'
     get  'labo/new' => 'labo#new'
 
-   #研究室ぱす移行ページ
+   #研究室パスワード移行ページ
     get  'labo_pass' => 'labo_pass#index'
 
 
@@ -25,19 +25,31 @@ Rails.application.routes.draw do
     get  'experiment' => 'experiment#index'
     get  'experiment/show' => 'experiment#show'
     get  'experiment/new' => 'experiment#new'
-  #研究室所属一覧
 
+  #研究室所属一覧
     get  'user' => 'user#index'
     get  'user/show' => 'user#show'
+
+  #スタンダード(テンプレート)プロトコル一覧
+    get  'standard' => 'standard#index'
+    get  'standard/show' => 'standard#show'
+    get  'standard/new' => 'standard#new'
+
+  #ベースプロトコル一覧
+    get  'base' => 'base#index'
+    get  'base/show' => 'base#show'
+    get  'base/new' => 'base#new'
 
   #カスタムプロトコル一覧
     get  'custom' => 'custom#index'
     get  'custom/show' => 'custom#show'
     get  'custom/new' => 'custom#new'
 
-  #スタンダードプロトコル一覧
-    get  'standard' => 'standard#index'
-    get  'standard/show' => 'standard#show'
-    get  'standard/new' => 'standard#new'
+  #研究室パスワード移行ページ
+    get  'category' => 'category#index'
+
+   #研究室パスワード移行ページ
+    get  'search' => 'search#index'
+
 
   end

@@ -126,7 +126,31 @@ header{
 }
 
 
-/*--------研究室ページへのログイン画面----------*/
+/*---各ボタンのレイアウト-----*/
+/*ログインと新規登録画面ボタンのレイアウト*/
+.btn-login{
+  margin-right: 5%;
+  border: 1px solid;
+  border-color: rgb(21, 127, 251);
+}
+.btn-SignUp{
+  border: 1px solid;
+  border-color: rgb(21, 127, 251);
+}
+/*プロトコルボタンのレイアウト*/
+.btn-register{
+  border: 1px solid;
+  border-color: rgb(21, 127, 251);
+  margin: 50px auto 75px;
+  display: block;
+}
+
+/*Aタグボタンのレイアウト*/
+.btn-Atag{
+  padding: 20px 10px;
+}
+
+
 
 
 /*--------登録完了画面----------*/
@@ -161,22 +185,10 @@ header{
   color: rgb(60,135,219);
 }
 
-
-
-
-/*アイコン２並列の横幅調整*/
-/*.card2-width{
-  margin: 0px 200px;
-}*/
-
-/*@media(max-width: 768px){
-  .card2-width{
-  margin: 0px 0px;
+/*aタグアイコンの高さ指定*/
+.icon-height275{
+  height: 275px;
 }
-}*/
-
-
-
 
 /*----------Box共通---------*/
 /*クリック範囲指定*/
@@ -192,9 +204,34 @@ header{
   margin: 1rem 75px 1rem 1rem;
 }
 
+/*アイコン２並列の横幅調整*/
+/*.card2-width{
+  margin: 0px 200px;
+}*/
 
+/*@media(max-width: 768px){
+  .card2-width{
+  margin: 0px 0px;
+}
+}*/
 
 /*----------所属メンバー一覧---------*/
+
+/*メンバーのボックス幅調整*/
+
+
+
+/*----------研究室一覧---------*/
+.Labo-Box{
+  background: rgba(255, 251, 246, 0.61)!important;
+  width: 250px;
+}
+/*研究室名下線*/
+.Labo-Border{
+  border-bottom: 1px solid;
+}
+
+/*----------メンバーの一覧---------*/
 
 /*メンバーのボックス幅調整*/
 .Member-Box{
@@ -236,7 +273,7 @@ header{
   height: 100px;
 }
 
-/*研究室一覧*/
+/*-----------研究室一覧------------*/
 .bg-info{
   margin:20px 50px!important;
 }

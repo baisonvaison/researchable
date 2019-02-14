@@ -34,14 +34,14 @@
       <% end %>
     </div>
     <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <a class="A-Tag" href="/user/show">
+      <%= link_to '/user/show', class: "A-Tag" do %>
         <div class="A-TagEffect">
           <h5>プロトコル名：hogehogehoge</h5>
           <p class="mb-0">作成日時：</p>
           <p class="mb-0">作成者名：</p>
           <p class="mb-0">カテゴリー名：</p>
         </div>
-      </a>
+      <% end %>
     </div>
     <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
       <%= link_to '/custom/show', class: "A-Tag" do %>

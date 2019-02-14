@@ -10,7 +10,7 @@
             <div class="col-10">
               <form>
                 <div class="form-group form-row">
-                  <label class="col-md-2 col-form-label text-md-left mb-4" for="Q_Name ">Email</label>
+                  <label class="col-md-2 col-form-label text-md-left mb-4" for="Q_Name ">email</label>
                   <div class="col-md-6">
                     <input type="text" class="form-control" id="Q_Name">
                   </div>
@@ -23,13 +23,10 @@
                 </div>
                 <div class="form-row">
                   <div class="col-9 text-center">
-                    <button class="btn btn-login">
-                      <%= link_to 'ログイン', '/labo/show',class: 'btn-Atag' %>
+                    <button type="button" class="btn btn-outline-primary" style="margin-right: 10%;" onclick="location.href='/labo/show'">
+                      <%= link_to "ログイン", class: 'btn btn-primary' %>
                     </button>
-                    <button class="btn btn-SignUp">
-                    <%= link_to "新規登録画面", '/users/new',class: 'btn-Atag' %>
-                    </button>
-
+                    <%= link_to "新規登録画面", class: 'btn btn-outline-primary' %>
                   </div>
                 </div>
               </form>

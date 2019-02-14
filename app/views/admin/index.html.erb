@@ -16,33 +16,33 @@
             <div class="card-deck">
 
                   <div class="card icon">
-                    <a href="/labo/new" style=" ">
+                    <%= link_to '/labo/new', class: "icon-height275" do %>
                     <div class="card-body text-center">
                         <img class="icon-size" src="/assets/Admin/school.png">
                         <h5 class="icon-FontColor card-title text-center mt-4">新規研究室登録
                         </h5>
                     </div>
-                    </a>
+                    <% end %>
                   </div>
 
                   <div class="card icon">
-                    <a href="/labo" style="height: 275px;">
+                    <%= link_to '/labo', class: "icon-height275" do %>
                     <div class="card-body text-center">
                         <img class="icon-size" src="/assets/Admin/book.png">
                         <h5 class="icon-FontColor card-title text-center mt-4">登録研究室一覧
                       </h5>
                     </div>
-                    </a>
+                    <% end %>
                   </div>
 
                   <div class="card icon">
-                    <a href="/standard/new" style="height: 275px;">
+                    <%= link_to '/standard/new', class: "icon-height275" do %>
                     <div class="card-body text-center">
                         <img class="icon-size" src="/assets/Admin/flask.png">
                         <h5 class="icon-FontColor card-title text-center mt-4">新規テンプレート<br>プロトコル
                       </h5>
                     </div>
-                    </a>
+                    <% end %>
                   </div>
 
             </div>

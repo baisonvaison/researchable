@@ -1,39 +1,46 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    @user=User.new
+    super
+  end
+  
+  def comf
+  end
+  
+  def comf2
+    labo_pass_digest = Affiliation.digest(params[:labo_pass])
+    if Affiliation.find_by(password_digest: labo_pass_digest)
+      render '/labo/index'
+    else
+      render 'comf'
+      flash[:alert] = "研究室が見つかりません"
+    end
   end
 
   # POST /resource
   def create
-    @user=User.new(user_params)
-    if @user.save
-      flash[:success] = "登録ありがとうございます。"
-      redirect_to @user
-    else
-      render 'new'
-    end
+    super
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -66,9 +73,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   private
+
     
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                  :affiliation_id, :status, :avatar, :password_confirmation)
-    end
 end

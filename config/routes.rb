@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+  
+  devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
+  
+  devise_scope :user do
+    root :to => 'devise/sessions#new'
+    get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
+    get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
+    get '/users/comf' => 'users/registrations#comf'
+    post '/users/comf' => 'users/registrations#comf2', as: "comf"
+  end
 
-  devise_for :users
 
   #ログイン＆新規登録画面
-    root 'users#index'
+    #root 'users#index'
     get  'users' => 'users#index'
     get  'users/new' => 'users#new'
     get  'thanks' => 'thanks#index'
@@ -15,7 +24,9 @@ Rails.application.routes.draw do
    #研究室新規登録ページ&研究室ページ
     get  'labo' => 'labo#index'
     get  'labo/show' => 'labo#show'
-    get  'labo/new' => 'labo#new'
+    get  'labo/new' => 'labo#new', as: "new_affiliation"
+    post 'labo/new' => 'labo#create', as: "affiliations"
+    
 
    #研究室パスワード移行ページ
     get  'labo_pass' => 'labo_pass#index'

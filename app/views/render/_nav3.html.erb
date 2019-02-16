@@ -5,32 +5,29 @@
     </button>
     <div class="collapse navbar-collapse primary-nav2" id="nav1">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <%= link_to 'マイページ', '/user/show', class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to 'カテゴリー', '/category', class: "nav-link" %>
-        </li>
+        <li class="nav-item active"><a href="/user/show" class="nav-link">マイページ</a></li>
+        <li class="nav-item active"><a href="/category" class="nav-link">カテゴリー</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">研究室</a>
           <div class="dropdown-menu">
             <%= link_to '研究室ページ', '/labo/show', class: "dropdown-item" %>
-            <%= link_to '研究室一覧', '/labo', class: "dropdown-item" %>
-            <%= link_to '研究室新規登録', '/labo/new', class: "dropdown-item" %>
+            <!-- <a href="/labo/show" class="dropdown-item">研究室ページ</a> -->
+            <%= link_to '研究室一覧', '/labo' %>
+            <!-- <a href="/labo" class="dropdown-item">研究室一覧</a> -->
+            <%= link_to '研究室新規登録', '/labo/new' %>
+            <!-- <a href="/labo/new" class="dropdown-item">研究室新規登録</a> -->
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">新規投稿</a>
           <div class="dropdown-menu">
-            <%= link_to '実験結果', '/experiment/new', class: "dropdown-item" %>
-            <%= link_to 'テンプレートプロトコル', '/standard/new', class: "dropdown-item" %>
-            <%= link_to 'ベースプロトコル', '/base/new', class: "dropdown-item" %>
-            <%= link_to 'カスタムプロトコル', '/custom/new', class: "dropdown-item" %>
+            <a href="/experiment/new" class="dropdown-item">実験結果</a>
+            <a href="/standard/new" class="dropdown-item">テンプレートプロトコル</a>
+            <a href="/base/new" class="dropdown-item">ベースプロトコル</a>
+            <a href="/custom/new" class="dropdown-item">カスタムプロトコル</a>
           </div>
         </li>
-         <li class="nav-item">
-          <%= link_to 'ログアウト', '/users', class: "nav-link" %>
-        </li>
+         <li class="nav-item"><a href="/users" class="nav-link">ログアウト</a></li>
       </ul>
     </div>
   </nav>

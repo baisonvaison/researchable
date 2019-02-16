@@ -9,40 +9,80 @@
     <section id="BGP-researchable">
       <div class="BGP-Opacity1">
       <h1 class="R-TitleName2 text-center"><strong>hogehoge研究室</strong></h1>
-      <div class="container-fluid" style="max-width: 1200px;">        <!-- 全体を囲むコンテナ -->
+      <div class="container-fluid mb-5" style="max-width: 1200px;">        <!-- 全体を囲むコンテナ -->
         <div class="row justify-content-center">
           <div class="col-md-12 mt-4 mt-md-0">
 
             <div class="card-deck">
 
               <div class="card icon">
-                <a href="/custom" style="height: 275px;">
+                <%= link_to '/base', class: "icon-height275" do %>
+                <div class="card-body text-center">
+                    <img class="icon-size" src="/assets/Admin/file2.png">
+                    <h5 class="card-title text-center mt-4 icon-FontColor">ベースプロトコル
+                    </h5>
+                </div>
+                <% end %>
+              </div>
+
+              <div class="card icon">
+                <%= link_to '/custom', class: "icon-height275" do %>
                 <div class="card-body text-center">
                     <img class="icon-size" src="/assets/Admin/file2.png">
                     <h5 class="card-title text-center mt-4 icon-FontColor">カスタムプロトコル
                     </h5>
                 </div>
-                </a>
+                <% end %>
               </div>
 
               <div class="card icon">
-                <a href="/experiment" style="height: 275px;">
+                <%= link_to '/standard', class: "icon-height275" do %>
+                <div class="card-body text-center">
+                    <img class="icon-size" src="/assets/Admin/file2.png">
+                    <h5 class="card-title text-center mt-4 icon-FontColor">テンプレートプロトコル
+                    </h5>
+                </div>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>                   <!-- 全体を囲むコンテナ -->
+      <div class="container-fluid" style="max-width: 1200px;">        <!-- 全体を囲むコンテナ -->
+        <div class="row justify-content-center">
+          <div class="col-md-12 mt-4 mt-md-0">
+
+            <div class="card-deck card2-width">
+
+              <div class="card icon">
+                <%= link_to '/experiment', class: "icon-height275" do %>
                 <div class="card-body text-center">
                     <img class="icon-size" src="/assets/Admin/result2.png">
                     <h5 class="card-title text-center mt-4 icon-FontColor">実験結果
                   </h5>
                 </div>
-                </a>
+                <% end %>
               </div>
 
               <div class="card icon">
-                <a href="/user" style="height: 275px;">
+                <%= link_to '/category', class: "icon-height275" do %>
+                <div class="card-body text-center">
+                    <img class="icon-size" src="/assets/Admin/category.png">
+                    <h5 class="card-title text-center mt-4 icon-FontColor">カテゴリー
+                  </h5>
+                </div>
+                <% end %>
+              </div>
+
+              <div class="card icon">
+                <%= link_to '/user', class: "icon-height275" do %>
                 <div class="card-body text-center">
                     <img class="icon-size" src="/assets/Admin/member2.png">
                     <h5 class="card-title text-center mt-4 icon-FontColor">所属メンバー
                   </h5>
                 </div>
-                </a>
+                <% end %>
               </div>
 
             </div>

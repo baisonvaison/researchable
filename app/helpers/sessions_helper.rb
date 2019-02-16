@@ -1,4 +1,4 @@
-module SessionHelper
+module SessionsHelper
     
     # 渡されたユーザーをログイン
   def log_in(user)

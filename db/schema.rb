@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_083205) do
+ActiveRecord::Schema.define(version: 2019_02_17_154116) do
 
   create_table "affiliations", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "university", default: "", null: false
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2019_02_17_083205) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "0", null: false
     t.bigint "affiliation_id"
-    t.integer "status", default: 0, null: false
     t.string "avatar", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

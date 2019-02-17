@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     root :to => 'devise/sessions#new'
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
-    get '/users/comf' => 'users/registrations#comf'
-    post '/users/comf' => 'users/registrations#comf2', as: "comf"
+    get '/users/labo' => 'users/registrations#retrieve_labo', as: 'retrieve_labo'
+    post '/users/labo' => 'users/registrations#find_labo', as: "find_labo"
   end
 
 

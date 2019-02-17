@@ -9,10 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
   
-  def comf
+  def retrieve_labo
   end
   
-  def comf2
+  def find_labo
     labo_pass_digest = Affiliation.digest(params[:labo_pass])
     if Affiliation.find_by(password_digest: labo_pass_digest)
       render '/labo/index'

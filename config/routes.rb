@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
+  devise_for :users, controllers: { shared: 'users/shared'}
   
   devise_scope :user do
     root :to => 'devise/sessions#new'
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
-    get '/users/labo' => 'users/registrations#retrieve_labo', as: 'retrieve_labo'
-    post '/users/labo' => 'users/registrations#find_labo', as: "find_labo"
   end
 
 
   #ログイン＆新規登録画面
     #root 'users#index'
+    get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'
+    post 'users/labo' => 'labo#find_labo', as: "find_labo"
     get  'users' => 'users#index'
-    get  'users/new' => 'users#new'
     get  'thanks' => 'thanks#index'
 
      #管理画面トップ

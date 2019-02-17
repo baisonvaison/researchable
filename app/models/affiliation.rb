@@ -4,13 +4,5 @@ class Affiliation < ApplicationRecord
     validates :department, presence: true
     validates :course,  presence: true
     validates :labo, presence: true
-    has_secure_password
-    has_many :users
-    
-    # 与えられた文字列のハッシュ値を返す
-    def Affiliation.digest(string)
-        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-        BCrypt::Password.create(string, cost: cost)
-    end
+    validates :cord, presence: true, length: { minimum: 8 }
 end

@@ -9,28 +9,47 @@ class LaboController < ApplicationController
   end
 
   def new
-    session[:ref] = nil #セッションの削除
     @affiliation = Affiliation.new
   end
   
   def create
-    @labo_pass = SecureRandom.hex(10).deep_dup #labo_pass/indexページで利用するため変数に保存
     @affiliation = Affiliation.new(affiliation_params)
-    @affiliation[:password_digest] = Affiliation.digest(@labo_pass)
-    #@affiliation[:password_digest] = SecureRandom.hex(10).deep_dup 
-    if @affiliation.save
-      flash[:notice] = "研究室が登録されました。"
-      render 'labo_pass/index'
+    if Affiliation.find_by(cord: @affiliation[:cord])
+      @affiliation=nil
+      flash[:alert] = "入力された研究室記号はすでに使用されています。"
+      redirect_to '/labo/new'
     else
-      flash[:alert] = "もう一度やり直してください"
-      render 'new'
+      if @affiliation.save
+        flash[:notice] = "研究室が登録されました。"
+        render 'labo_pass/index'
+        
+      else
+        @affiliation=nil
+        flash[:alert] = "もう一度やり直してください"
+        redirect_to '/labo/new'
+      end
     end
  
+  end
+  
+    
+  def retrieve_labo
+  end
+  
+  def find_labo
+    @labo = Affiliation.find_by(cord: params[:labo][:cord])
+    if @labo
+      flash[:notice] = '研究室が確認できました。'
+      redirect_to '/users/new'
+    else
+      render "retrieve_labo"
+      flash[:alert] = "研究室が見つかりません"
+    end
   end
 
   private
   
     def affiliation_params
-      params.require(:affiliation).permit(:university, :department, :course, :labo)
+      params.require(:affiliation).permit(:university, :department, :course, :labo, :cord)
     end
 end

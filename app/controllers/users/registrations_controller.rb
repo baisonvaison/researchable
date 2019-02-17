@@ -8,19 +8,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
-  
-  def retrieve_labo
-  end
-  
-  def find_labo
-    labo_pass_digest = Affiliation.digest(params[:labo_pass])
-    if Affiliation.find_by(password_digest: labo_pass_digest)
-      render '/labo/index'
-    else
-      render 'comf'
-      flash[:alert] = "研究室が見つかりません"
-    end
-  end
 
   # POST /resource
   def create

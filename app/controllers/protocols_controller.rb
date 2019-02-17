@@ -31,7 +31,7 @@ class ProtocolsController < ApplicationController
     # 以下の記述は菊池氏の作業が終わり次第戻す
     # protocol.affiliation_id = current_user.affiliation.id
     # protocol.user_id = current_user.id
-    protocol.save!
+    protocol.save
   end
 
   private

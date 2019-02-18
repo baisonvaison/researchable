@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   belongs_to :affiliation
+  has_many :experiments, dependent: :destroy
          
   validates :first_name, presence: true
   validates :last_name, presence: true

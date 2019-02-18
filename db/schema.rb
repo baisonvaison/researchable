@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_03_115759) do
-=======
-ActiveRecord::Schema.define(version: 2019_02_03_775217) do
->>>>>>> 作成途中
-=======
-ActiveRecord::Schema.define(version: 2019_02_03_714314) do
->>>>>>> 故障
 
   create_table "affiliations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "university", default: "", null: false

@@ -11,9 +11,7 @@ class ExperimentController < ApplicationController
   end
   
   def create
-    binding.pry
     @experiment = current_user.experiments.build(experiment_params)
-    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
       redirect_to 'experiment/show'

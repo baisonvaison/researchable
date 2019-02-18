@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: { shared: 'users/shared'}
+  devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
   
   devise_scope :user do
     root :to => 'devise/sessions#new'

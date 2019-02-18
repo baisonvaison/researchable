@@ -5,10 +5,13 @@ class CreateExperiments < ActiveRecord::Migration[5.2]
       t.date :date, null: false
       t.text :overview, null: false
       t.text :result, null: false
-      t.references :experiment, foreign_key: true
+      t.references :category, foreign_key: true
+      t.references :protocol, foreign_key: true
       t.references :user, foreign_key: true
+      t.references :image, foreign_key: true
 
       t.timestamps
     end
+    add_index :experiments, [:user_id, :created_at]
   end
 end

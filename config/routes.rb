@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     get  'experiment' => 'experiment#index'
     get  'experiment/show' => 'experiment#show'
     get  'experiment/new' => 'experiment#new'
+    post 'experiment/new' => 'experiment#create', as: "experiments"
 
   #研究室所属一覧
     get  'user' => 'user#index'

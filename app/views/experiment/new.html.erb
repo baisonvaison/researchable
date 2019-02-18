@@ -18,11 +18,11 @@
             </div>
           <div class="col-0"></div>
             <div class="col-10">
-              <form>
+              <%= form_for @experiment do |f| %>
                 <div class="form-group mb-5">
-                  <label class="col-md-4 col-form-label mb-2" for="B_Name">タイトル（実験名称）</label>
+                  <%= f.label :title, 'タイトル（実験名称）', class: "col-md-4 col-form-label mb-2" %>
                   <div class="col-md-5">
-                    <input type="text" class="form-control" id="B_Name">
+                    <%= f.text_field :title, class: "form-control" %>
                   </div>
                 </div>
 
@@ -34,50 +34,41 @@
                 </div>
 
                 <div class="form-group mb-5">
-                  <label class="col-md-4 col-form-label mb-2" for="B_Name">実験実施日</label>
+                  <%= f.label :date, '実験実施日', class: "col-md-4 col-form-label mb-2" %>
                   <div class="col-md-5">
-                    <a id="year"></a><a id="month"></a><a id="day"></a>
+                    <%= f.date_select :date %>
                   </div>
                 </div>
 
                  <div class="form-group mb-5">
-                    <label class="col-md-3 col-form-label" for="B_Name">実験の概要</label>
+                    <%= f.label :overview, '実験の概要', class: "col-md-3 col-form-label" %>
                     <div class="col-md-9" style="max-width: 100%;">
-                      <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
+                      <%= f.text_area :overview, rows: "7", class: "form-control" %>
                     </div>
                   </div>
 
-                <div class="form-group col-md-5 mb-5">
-                  <label for="receipt">利用したプロトコル（選択）</label>
-                  <select class="custom-select" id="receipt">
-                    <option>選択</option>
-                    <option>hoge1</option>
-                    <option>hoge2</option>
-                    <option>hoge3</option>
-                  </select>
-                </div>
+                <!--div class="form-group col-md-5 mb-5">
+                  <#%= f.label :protocol, '利用したプロトコル（選択）'%>
+                  <#%= f.select protocol, [#]class: "custom-select" %>
+                
+                </div-->
 
                 <div class="form-group mb-5">
-                  <label class="col-md-3 col-form-label" for="B_Name">実験の結果</label>
+                  <%= f.label :result, '実験の結果', class: "col-md-3 col-form-label" %>
                   <div class="col-md-9" style="max-width: 100%;">
-                    <textarea rows="7" class="form-control" id="Q_Ask"></textarea>
+                    <%= f.text_area :result, rows: "7", class: "form-control" %>
                   </div>
                 </div>
 
-                <div class="form-group col-md-5 mb-5">
-                  <label for="receipt">登録するカテゴリー（選択）</label>
-                  <select class="custom-select" id="receipt">
-                    <option>選択</option>
-                    <option>hoge1</option>
-                    <option>hoge2</option>
-                    <option>hoge3</option>
-                  </select>
-                </div>
+                <!--div class="form-group col-md-5 mb-5">
+                  <#%= f.label :category, '登録するカテゴリー（選択）' %>
+                  <#%= f.select :category, [["aaa", "aaa"], ["bbb", "bbb"], ["ccc", "ccc"]], prompt: "選択", class: "custom-select" %>
+                </div-->
 
                 <button class="btn btn-register">
-                  <%= link_to "登録する", '/',class: 'btn-Atag' %>
+                  <%= f.submit "登録する", class: 'btn-Atag' %>
                 </button>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>

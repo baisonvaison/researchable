@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
   end
 
+  resources :protocols, only: [:index, :show, :new, :create, :destroy] do
+    resources :procedures, only: [:index, :show, :new, :create]
+  end
+
+  root 'protocols#new'
+  devise_for :users
 
   #ログイン＆新規登録画面
     #root 'users#index'

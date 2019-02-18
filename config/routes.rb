@@ -74,6 +74,7 @@ Rails.application.routes.draw do
 
   #研究室パスワード移行ページ
     get  'category' => 'category#index'
+    get 'category/new' => 'category#new'
 
    #研究室パスワード移行ページ
     get  'search' => 'search#index'

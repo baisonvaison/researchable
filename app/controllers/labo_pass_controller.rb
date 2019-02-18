@@ -1,4 +1,4 @@
 class LaboPassController < ApplicationController
-  def labo_pass
+  def index
   end
 end

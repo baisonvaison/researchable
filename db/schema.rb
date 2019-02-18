@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_115759) do
+ActiveRecord::Schema.define(version: 2019_02_17_154116) do
 
   create_table "affiliations", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "university", default: "", null: false
     t.string "department", default: "", null: false
     t.string "course", default: "", null: false
     t.string "labo", default: "", null: false
-    t.string "password_digest", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cord", null: false
   end
 
   create_table "comments", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,10 +83,10 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "0", null: false
     t.bigint "affiliation_id"
-    t.integer "status", default: 0, null: false
     t.string "avatar", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["affiliation_id"], name: "index_users_on_affiliation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

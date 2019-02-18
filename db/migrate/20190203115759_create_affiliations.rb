@@ -5,7 +5,7 @@ class CreateAffiliations < ActiveRecord::Migration[5.2]
       t.string :department, null: false, default: ""
       t.string :course, null: false, default: ""
       t.string :labo, null: false, default: ""
-      t.string :password_digest, null: false, default: ""
+      t.string :cord, null: false, default: ""
 
       t.timestamps
     end

@@ -13,6 +13,7 @@ class ExperimentController < ApplicationController
   end
   
   def create
+
     @experiment = current_user.experiments.build(experiment_params)
     binding.pry
     if @experiment.save

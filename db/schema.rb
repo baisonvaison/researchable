@@ -45,15 +45,18 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
     t.date "date", null: false
     t.text "overview", null: false
     t.text "result", null: false
+
     t.bigint "protocol_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.index ["protocol_id"], name: "index_experiments_on_protocol_id"
     t.index ["user_id"], name: "index_experiments_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "image", default: "", null: false
     t.bigint "experiment_id"
     t.datetime "created_at", null: false

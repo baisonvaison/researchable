@@ -14,6 +14,7 @@ class ExperimentController < ApplicationController
   
   def create
     @experiment = current_user.experiments.build(experiment_params)
+    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
       redirect_to experiment_path
@@ -28,7 +29,11 @@ class ExperimentController < ApplicationController
   
   private
     def experiment_params
+<<<<<<< HEAD
       params.require(:experiment).permit(:title, :date, :overview, :protocol_id, :result, images_attributes: [:image] , category_attributes: [:category])
+=======
+      params.require(:experiment).permit(:title, :date, :overview, :protocol_id, :result, :category_id)
+>>>>>>> 作成途中
     end
 
 end

@@ -36,6 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
 
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # jpg,jpeg,gif,pngしか受け付けない

@@ -17,9 +17,6 @@ Rails.application.routes.draw do
     resources :procedures, only: [:index, :show, :new, :create]
   end
 
-  root 'protocols#new'
-
-
 
   #ログイン＆新規登録画面
     #root 'users#index'

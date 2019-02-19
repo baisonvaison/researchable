@@ -7,6 +7,7 @@ class CreateExperiments < ActiveRecord::Migration[5.2]
       t.text :result, null: false
       t.references :protocol, foreign_key: true
       t.references :user, foreign_key: true
+
       t.timestamps
     end
     #add_index :experiments, [:user_id, :created_at]

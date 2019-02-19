@@ -1,4 +1,5 @@
 class ProtocolsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
   end
@@ -10,17 +11,10 @@ class ProtocolsController < ApplicationController
   end
 
   def new
-    # deviseでの実装が完了するまでのつなぎ。
-    current_user = 1
-    if current_user = 1
-    #if current_user.status = 1
+    if current_user.admin = true
       @protocol = Protocol.new(status: Protocol::TEMPLATE)
     else
-      if params[:parent_id].present?
-        @protocol = Protocol.new(status: Protocl::CUSTOM, parent_id: params[:parent_id])
-      else
-        @protocol = Protocol.new
-      end
+      @protocol = Protocol.new
     end
 
     @protocol.procedures.build
@@ -28,9 +22,8 @@ class ProtocolsController < ApplicationController
 
   def create
     protocol = Protocol.new(create_params)
-    # 以下の記述は菊池氏の作業が終わり次第戻す
-    # protocol.affiliation_id = current_user.affiliation.id
-    # protocol.user_id = current_user.id
+    protocol.affiliation_id = current_user.affiliation.id
+    protocol.user_id = current_user.id
     protocol.save
   end
 

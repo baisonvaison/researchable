@@ -73,4 +73,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "jquery-rails"
 gem 'carrierwave', '~> 1.0'
-gem 'rmagick'
+#最新版はcloud9でインストールできませんでした。
+gem 'rmagick', '2.16.0'

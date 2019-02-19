@@ -7,8 +7,10 @@ class User < ApplicationRecord
          
   belongs_to :affiliation
   has_many :experiments, dependent: :destroy
+  has_many :comments, dependent: :destroy
          
   validates :first_name, presence: true
   validates :last_name, presence: true
-
+  
+  
 end

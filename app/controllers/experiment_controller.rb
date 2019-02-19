@@ -8,9 +8,18 @@ class ExperimentController < ApplicationController
 
   def new
     @experiment = current_user.experiments.build
+    @experiment.images.build
+    @experiment.build_category
   end
   
   def create
+    #if params[:experiment][:category][:input].empty?
+    #  @experiment[:category] = params[:experiment][:category][:selection]
+    #else
+    #  @experiment[:category] = params[:experiment][:category][:input]
+    #end
+    #@experiment[:category].delete([:input], [:selection])
+    binding.pry
     @experiment = current_user.experiments.build(experiment_params)
     binding.pry
     if @experiment.save
@@ -27,7 +36,8 @@ class ExperimentController < ApplicationController
   
   private
     def experiment_params
-      params.require(:experiment).permit(:title, :date, :overview, :protocol_id, :result, :category_id)
+      params.require(:experiment).permit(:title, :date, :overview, :protocol_id, :result, images_attributes: [:image] , category_attributes: [:category])
     end
 
 end
+#

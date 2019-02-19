@@ -43,10 +43,10 @@ Rails.application.routes.draw do
     get  'users/new' => 'users#new'
 
   #実験結果ページ
-    get  'experiment' => 'experiment#index'
+    get  '/experiment' => 'experiment#index'
     get  'experiment/show' => 'experiment#show'
-    get  'experiment/new' => 'experiment#new'
-    post 'experiment/new' => 'experiment#create', as: "experiments"
+    get  '/experiment/new' => 'experiment#new', as: "new_experiment"
+    post '/experiment' => 'experiment#create', as: "experiments"
 
   #研究室所属一覧
 

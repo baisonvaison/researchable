@@ -18,9 +18,6 @@ Rails.application.routes.draw do
   end
   resources :custom_protocols, only: [ :new]
 
-  root 'protocols#new'
-
-
 
   #ログイン＆新規登録画面
     #root 'users#index'

@@ -12,9 +12,10 @@ class ExperimentController < ApplicationController
   
   def create
     @experiment = current_user.experiments.build(experiment_params)
+    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
-      redirect_to 'experiment/show'
+      redirect_to experiment_path
     else
       flash[:alert] = 'エラーが発生しました。'
       render 'new'
@@ -26,7 +27,7 @@ class ExperimentController < ApplicationController
   
   private
     def experiment_params
-      params.require(:experiment).permit(:title, :date, :overview, :result)
+      params.require(:experiment).permit(:title, :date, :overview, :protocol_id, :result, :category_id)
     end
 
 end

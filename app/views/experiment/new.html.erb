@@ -26,12 +26,12 @@
                   </div>
                 </div>
 
-                <div class="form-group mb-5">
-                  <label class="col-md-4 col-form-label mb-2" for="B_Name">画像資料</label>
+                <!--div class="form-group mb-5">
+                  <#%= f.label :image, '画像資料', class: "col-md-4 col-form-label mb-2" %>
                   <div class="col-md-5">
-                    <button class="btn btn-outline-primary">ファイルを選択</button>
+                    <#%= f.collection_select :imagebutton class="btn btn-outline-primary">ファイルを選択</button>
                   </div>
-                </div>
+                </div-->
 
                 <div class="form-group mb-5">
                   <%= f.label :date, '実験実施日', class: "col-md-4 col-form-label mb-2" %>
@@ -47,11 +47,10 @@
                     </div>
                   </div>
 
-                <!--div class="form-group col-md-5 mb-5">
-                  <#%= f.label :protocol, '利用したプロトコル（選択）'%>
-                  <#%= f.select protocol, [#]class: "custom-select" %>
-                
-                </div-->
+                <div class="form-group col-md-5 mb-5">
+                  <%= f.label :protocol_id, '利用したプロトコル（選択）'%>
+                  <%= f.collection_select :protocol_id, Protocol.all, :id, :title, prompt: "選択", class: "custom-select"  %>
+                </div>
 
                 <div class="form-group mb-5">
                   <%= f.label :result, '実験の結果', class: "col-md-3 col-form-label" %>
@@ -60,10 +59,10 @@
                   </div>
                 </div>
 
-                <!--div class="form-group col-md-5 mb-5">
-                  <#%= f.label :category, '登録するカテゴリー（選択）' %>
-                  <#%= f.select :category, [["aaa", "aaa"], ["bbb", "bbb"], ["ccc", "ccc"]], prompt: "選択", class: "custom-select" %>
-                </div-->
+                <div class="form-group col-md-5 mb-5">
+                  <%= f.label :category_id, '登録するカテゴリー（選択）' %>
+                  <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "選択", class: "custom-select" %>
+                </div>
 
                 <button class="btn btn-register">
                   <%= f.submit "登録する", class: 'btn-Atag' %>

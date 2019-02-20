@@ -1,48 +1,63 @@
-<h2>アカウントの修正 <%= resource_name.to_s.humanize %></h2>
+<main class="register-screen wf-roundedmplus1c">
+  <article>
+    <section id="BGP-researchable">
+      <div class="BGP-Opacity3">
+        <h1 class="R-TitleName text-center"><strong>Researchable</strong></h1>
+        <h5 class="text-center" style="margin-bottom: 75px;">アカウントの編集</h5>
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-2"></div>
+            <div class="col-10">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="form-group form-row mb-4">
+                <%= f.label :email, "メールアドレス", class: "col-md-2 col-form-label text-md-left" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <div class="form-group form-row mb-4">
+                <%= f.label :password, "パスワード", class: "col-md-2 col-form-label text-md-left"  %> <i>(変更がない場合空欄にしてください。)</i><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                <% if @minimum_password_length %>
+              <br />
+                <em><%= @minimum_password_length %>文字以上の半角英数字を入力してください。</em>
+                <% end %>
+              </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+              <div class="form-group form-row mb-4">
+                <%= f.label :password_confirmation, "パスワードの確認", class: "col-md-2 col-form-label text-md-left" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %> <i>(変更がない場合空欄にしてください。)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %>文字以上の半角英数字を入力してください。</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワードの確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password, "現在のパスワード" %> <i>(変更を認証するために現在のパスワードが必要です。)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+              <div class="form-group form-row mb-4">
+                <%= f.label :current_password, "現在のパスワード", class: "col-md-2 col-form-label text-md-left"  %> <i>(変更を認証するために現在のパスワードが必要です。)</i><br />
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+              </div>
   
-  <div>
-    <%= f.label :image, "アバター" %>
-    <%= f.file_field :image %>
-  </div>
+              <div>
+                <% if current_user.avatar.url.present? %>
+                  <%= image_tag(current_user.avatar.url) %>
+                  <%= f.label :remove_avatar do %>
+                    <%= f.check_box :remove_avatar %>
+                  <% end %>
+                <% end %>
+                <%= f.file_field :avatar %>
+                <%= f.hidden_field :avatar_cache %>
+              </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+              <div class="form-group form-row">
+                <%= f.submit "更新" %>
+              </div>
+            <% end %>
+            <p><%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当にアカウントを削除してもよろしいでしょうか" }, method: :delete %></p>
 
-<h3>Cancel my account</h3>
-
-<p><%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当にアカウントを削除してもよろしいでしょうか" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
+            <%= link_to "戻る", :back %>
+        </div>                <!-- 全体を囲むコンテナ -->
+      </div>
+    </section>
+  </article>
+</main>

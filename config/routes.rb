@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
 
   devise_scope :user do
-    root :to => 'devise/sessions#new'
+    authenticated :user do
+      root 'labo#show', as: :authenticated_root
+    end
+    unauthenticated do
+      root 'devise/sessions#new'
+    end
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
   end

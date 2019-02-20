@@ -29,8 +29,8 @@
                 <div class="form-group mb-5">
                   <%= f.label :image, '画像資料', class: "col-md-4 col-form-label mb-2" %>
                   <div class="col-md-5">
-                    <%= f.fields_for :image do |i| %>
-                      <%= i.file_field :image, class: "btn btn-outline-primary" %>
+                    <%= f.fields_for :images do |i| %>
+                      <%= i.file_field :image %>
                     <% end %>
                   </div>
                 </div>
@@ -63,9 +63,9 @@
 
                 <div class="form-group col-md-5 mb-5">
                   <%= f.label :category, '登録するカテゴリー（選択）' %>
-                  <%= f.fields_for :category do |g| %>
-                    <%= g.collection_select :selection, Category.all, :id, :category, prompt: "選択", class: "custom-select" %>
-                    <%= g.text_field :input, class: "form-control" %>
+                  <%= f.fields_for :categories do |g| %>
+                    <%= g.collection_select :category, Category.all, :id, :category, prompt: "選択", class: "custom-select" %>
+                    <%= g.text_field :category, class: "form-control" %>
                   <% end %>
                 </div>
 

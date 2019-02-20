@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   root 'protocols#new'
-  devise_for :users
 
   #ログイン＆新規登録画面
     #root 'users#index'

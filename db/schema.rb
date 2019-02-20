@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
     t.string "title", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["affiliation_id"], name: "index_protocols_on_affiliation_id"
+    t.index ["user_id"], name: "index_protocols_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

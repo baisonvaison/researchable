@@ -29,8 +29,8 @@
                 <div class="form-group mb-5">
                   <%= f.label :image, '画像資料', class: "col-md-4 col-form-label mb-2" %>
                   <div class="col-md-5">
-                    <%= f.fields_for :image do |i| %>
-                      <%= i.file_field :image, class: "btn btn-outline-primary" %>
+                    <%= f.fields_for :images do |i| %>
+                      <%= i.file_field :image %>
                     <% end %>
                   </div>
                 </div>

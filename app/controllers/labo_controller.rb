@@ -1,7 +1,6 @@
 class LaboController < ApplicationController
-  require "active_support/core_ext/object/duplicable"
   include LaboHelper
-  before_action :sign_in_required, only: [:show]
+  before_action :sign_in_required, only: [:show, :new, :create]
   def index
   end
 

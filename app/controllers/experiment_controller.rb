@@ -1,5 +1,5 @@
 class ExperimentController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
   end
 
@@ -9,19 +9,11 @@ class ExperimentController < ApplicationController
   def new
     @experiment = current_user.experiments.build
     @experiment.images.build
-    @experiment.build_category
+    @experiment.categories.build
   end
   
   def create
-    #if params[:experiment][:category][:input].empty?
-    #  @experiment[:category] = params[:experiment][:category][:selection]
-    #else
-    #  @experiment[:category] = params[:experiment][:category][:input]
-    #end
-    #@experiment[:category].delete([:input], [:selection])
-    binding.pry
     @experiment = current_user.experiments.build(experiment_params)
-    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
       redirect_to experiment_path
@@ -40,4 +32,3 @@ class ExperimentController < ApplicationController
     end
 
 end
-#

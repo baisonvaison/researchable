@@ -5,8 +5,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.registration_confirmation.subject
   #
   def registration_confirmation
-    @greeting = "Hi"
+    @greeting = "こんにちは"
  
-    mail to: "to@example.org"
+    mail to: "researchable0214@gmail.com"
   end
 end

@@ -1,7 +1,10 @@
 class LaboController < ApplicationController
+<<<<<<< HEAD
   require "active_support/core_ext/object/duplicable"
   include LaboHelper
   before_action :sign_in_required, only: [:show]
+=======
+>>>>>>> 876273c992d46f0ec00e4204d4c8803c31974aff
   def index
   end
 
@@ -9,6 +12,7 @@ class LaboController < ApplicationController
   end
 
   def new
+<<<<<<< HEAD
     @affiliation = Affiliation.new
   end
   
@@ -52,4 +56,8 @@ class LaboController < ApplicationController
     def affiliation_params
       params.require(:affiliation).permit(:university, :department, :course, :labo, :cord)
     end
+=======
+  end
+
+>>>>>>> 876273c992d46f0ec00e4204d4c8803c31974aff
 end

@@ -28,6 +28,16 @@ body{
 }
 /*BGP=BackGroundPictureの略*/
 
+/*次から自動ログインするの上下調整*/
+.login-continue{
+  height: 135px;
+}
+@media(max-width: 768px){
+  .login-continue{
+    height: auto;
+  }
+}
+
 
 /*背景写真の透過と縦幅の調整*/
 .BGP-Opacity1{

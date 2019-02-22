@@ -17,18 +17,16 @@
     <% @users.each do |user| %>
       <div class="bg-info p-3 mb-2 mr-sm-2 Member-Box">
         <%= link_to user_show_path(user), class: "A-Tag" do %>
-        <div class="media A-TagEffect">
-          <%= image_tag user.avatar.url, class: "Member-Avatar mr-3" %>
+        <class="media A-TagEffect">
+          <%#= image_tag user.avatar.url, class: "Member-Avatar mr-3" %>
           <div class="media-body" style="">
-            <h4><%= user.last_name + " " + user.first_name %></h4>
-            <p class="mb-0">大学名：<%= @labo_university %></p>
-            <p class="mb-0">学部名：<%= @labo_department%></p>
-            <p class="mb-0">学科名：<%= @labo_course %></p>
+            <h4><%= "Adimn  " if user.admin %><%= user.last_name + " " + user.first_name %></h4>
           </div>
         </div>
         <% end %>
       </div>
     <% end %>
+    <%= paginate @users %>
   
     </div>
 

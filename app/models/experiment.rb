@@ -1,10 +1,9 @@
 class Experiment < ApplicationRecord
     belongs_to :user
-    belongs_to :protocl
-    has_many :categories
-    accepts_nested_attributes_for :categories, allow_destroy: true
-    has_many :images
-    accepts_nested_attributes_for :images, allow_destroy: true
+    belongs_to :protocol 
+    belongs_to :category
+    has_many :comments
+    attr_accessor :staff, :category, :protocol, :new_category
     
     default_scope -> { order(created_at: :desc) }
       
@@ -13,7 +12,6 @@ class Experiment < ApplicationRecord
     validates :overview, presence: true
     validates :result, presence: true
     validates :user_id, presence: true
-    validates :protocol_id, presence: true
     
     mount_uploader :image, ImageUploader
     

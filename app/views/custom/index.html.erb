@@ -19,13 +19,14 @@
           <div class="A-TagEffect">
             <h5>プロトコル名：<%= custom.title %></h5>
             <p class="mb-0">作成日時：<% custom.created_at %></p>
-            <p class="mb-0">作成者名：<%= custom[:user] %></p>
+            <p class="mb-0">作成者名：<%= User.find(custom.user_id).last_name + " " + User.find(custom.user_id).first_name %></p>
             <!--p class="mb-0">カテゴリー名：実装方法不明のため一旦コメントアウト</p-->
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
+      <%= paginate @customs %>
 
 </div>        <!-- 全体を囲むコンテナ -->
       </div>

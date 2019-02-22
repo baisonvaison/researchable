@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     unauthenticated do
       root 'devise/sessions#new'
     end
-    get '/users/edit/:id' => 'users/registrations#edit', as: "edit_user_path"
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
   end
@@ -22,7 +21,6 @@ Rails.application.routes.draw do
   #ログイン＆新規登録画面
     get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'
     post 'users/labo' => 'labo#find_labo', as: "find_labo"
-    #get  'users' => 'users#index'
     get  'thanks' => 'thanks#index'
 
      #管理画面トップ
@@ -42,7 +40,7 @@ Rails.application.routes.draw do
 
   #実験結果ページ
     get  '/experiment' => 'experiment#index'
-    get  'experiment/show:id' => 'experiment#show', as: "experiment_show"
+    get  'experiment/show/:id' => 'experiment#show', as: "experiment_show"
     get  'experiment/new' => 'experiment#new', as: "new_experiment"
     post 'experiment/new' => 'experiment#create', as: "experiments"
 
@@ -53,26 +51,22 @@ Rails.application.routes.draw do
     get  'login' => 'login#index'
     get  'login/new'  =>  'login#new'
     get  'user' => 'user#index'
-    get  'user/show' => 'user#show'
+    get  'user/show/:id' => 'user#show', as: "user_show"
 
   #スタンダード(テンプレート)プロトコル一覧
     get  'standard' => 'standard#index'
-    get  'standard/show/:id' => 'standard#show', as: "standard_show"
+    get  'standard/show' => 'standard#show'
     get  'standard/new' => 'standard#new'
 
   #ベースプロトコル一覧
     get  'base' => 'base#index'
-    get  'base/show/:id' => 'base#show', as: "base_show"
+    get  'base/show' => 'base#show'
     get  'base/new' => 'base#new'
 
   #カスタムプロトコル一覧
     get  'custom' => 'custom#index'
     get  'custom/show/:id' => 'custom#show', as: "custom_show"
     get  'custom/new' => 'custom#new'
-
-  #研究室パスワード移行ページ
-    get  'category' => 'category#index'
-    get 'category/new' => 'category#new'
 
    #研究室パスワード移行ページ
     get  'search' => 'search#index'

@@ -12,23 +12,21 @@
   <div class="container">        <!-- 全体を囲むコンテナ -->
     <h1 class="R-TitleName3"><strong>~<%= @labo.labo %>研究室~</strong></h1>
   <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/result.png">実験結果</h2>
-
-
   <div class="d-sm-flex flex-wrap text-black">
     <% @experiments.each do |experiment| %>
       <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-        <%= link_to experiment_show(experiment), class: "A-Tag" do %>
+        <%= link_to experiment_show_path(experiment), class: "A-Tag" do %>
           <div class="A-TagEffect">
-            <h5>プロトコル名：<%= experiment[:protocol] %></h5>
+            <h5>プロトコル名：<%= experiment.protocol %></h5>
             <p class="mb-0">作成日時：<%= experiment.date %></p>
-            <p class="mb-0">作成者名：<%= experiment[:staff] %></p>
-            <p class="mb-0">カテゴリー名：<%= experiment[:category] %></p>
+            <p class="mb-0">作成者名：<%= experiment.staff %></p>
+            <p class="mb-0">カテゴリー名：<%= experiment.category %></p>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-
+<%= paginate @experiments %>
 </div>        <!-- 全体を囲むコンテナ -->
 
       </div>

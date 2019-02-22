@@ -7,9 +7,10 @@ class CreateExperiments < ActiveRecord::Migration[5.2]
       t.text :result, null: false
       t.references :protocol, foreign_key: true
       t.references :user, foreign_key: true
+      t.references :category, foreign_key: true
+      t.string :image, null: false, default: ""
 
       t.timestamps
     end
-    #add_index :experiments, [:user_id, :created_at]
   end
 end

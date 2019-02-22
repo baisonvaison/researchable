@@ -12,7 +12,7 @@
           <div class="row justify-content-center">
             <div class="col-md-0"></div>
               <div class="col-md-10">
-                <h1 class="R-TitleName3"><strong><%= @experiment.experiment %></strong></h1>
+                <h1 class="R-TitleName3"><strong><%= @experiment.title %></strong></h1>
                 </h1>
               </div>
             </div>
@@ -20,14 +20,14 @@
       <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
           <div class="row justify-content-center">
             <div class="col-md-4">
-              <%= image_tag(@image.image), class: "img-fluid", style: "height: 200px; width: auto; border-radius: 5px; " %>
+              <%#= image_tag @experiment.image.url, class: "img-fluid", style: "height: 200px; width: auto; border-radius: 5px;" %>
             </div>
             <div class="col-md-6 mt-4 mt-md-0">
               <p class="experiment-time">実験実施日<br>
                 <%= @experiment.date %></p>
               <p class="experiment-category">カテゴリー<br>
                 <%= @category.category %></p>
-              <p class="experiment-protocol">利用したプロトコル
+              <p class="experiment-protocol">利用したプロトコル<br>
                 <%= link_to "#{@protocol.title}", custom_show_path(@protocol) %></p>
             </div>
           </div>

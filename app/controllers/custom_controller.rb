@@ -6,7 +6,7 @@ class CustomController < ApplicationController
   end
 
   def show
-    @custom = Protocol.where(status: 1, id: params).order(:id)
+    @custom = Protocol.find params[:id]
   end
 
   def new
@@ -15,11 +15,7 @@ class CustomController < ApplicationController
   private
     def customs
       @customs = Protocol.where(status: 1).order(:id)
-      @customs.each do |custom|
-        user = User.find(custom.user_id)
-        custom[:user] = user.last_name + " " + user.first_name
-        user = nil
-      end
+      @customs = Protocol.page(params[:page]).per(12)
       @labo = Affiliation.find(current_user.affiliation_id)
     end
   

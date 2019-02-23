@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
-  
+
   devise_scope :user do
     root :to => 'devise/sessions#new'
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
@@ -30,11 +30,14 @@ Rails.application.routes.draw do
     get  'labo/show' => 'labo#show'
     get  'labo/new' => 'labo#new', as: "new_affiliation"
     post 'labo/new' => 'labo#create', as: "affiliations"
-    
 
    #研究室パスワード移行ページ
     get  'labo_pass' => 'labo_pass#index'
 
+
+  #ログイン＆新規登録画面
+    root 'users#index'
+    get  'users/new' => 'users#new'
 
   #実験結果ページ
     get  'experiment' => 'experiment#index'

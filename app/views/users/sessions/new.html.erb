@@ -5,7 +5,7 @@
         <div class="container-fluid wf-roundedmplus1c">        <!-- 全体を囲むコンテナ -->
           <h1 class="R-TitleName text-center"><strong>Researchable</strong></h1>
           <h5 class="text-center" style="margin-bottom: 75px;">研究者の時間は、研究の為に・・・</h5>
-          <div class="row justify-content-center">
+          <div class="row justify-content-center login-continue">
             <div class="col-2"></div>
             <div class="col-10">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -21,19 +21,41 @@
                     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
                   </div>
                 </div>
+            </div>
+          </div>
+          <div class="row justify-content-center mb-4">
+            <div class="col-2"></div>
+            <div class="col-7">
                 <% if devise_mapping.rememberable? -%>
                   <div class: "field">
                     <%= f.check_box :remember_me %>
                     <%= f.label :remember_me, "次から自動ログインする" %>
                   </div>
                 <% end -%>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2"></div>
+            <div class="col-7">
                 <div class="form-row">
                   <div class="col-9 text-center">
-                    <%= f.submit "ログイン", class: "btn btn-outline-primary", style: "margin-right: 75px;" %>
+                    <%= f.submit "ログイン", class: "btn btn-outline-primary mb-3", style: "margin-right: 10%;" %>
+                    <%- if devise_mapping.registerable? && controller_name != 'registrations'%>
+                    <%= link_to "新規会員登録", retrieve_labo_path, class: "btn btn-outline-primary mb-3", style: "" %>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
-              <%= render "users/shared/links" %>
+            </div>
+          </div>
+          <div class="row justify-content-center mt-5">
+            <div class="col-2"></div>
+            <div class="col-7">
+              <p>パスワードをお忘れの方→
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "パスワードの再発行", new_password_path(resource_name), class: "btn btn-outline-primary", style: "margin-right: 75px;" %>
+                <% end -%>
+              </p>
             </div>
           </div>
         </div>                <!-- 全体を囲むコンテナ -->
@@ -41,4 +63,3 @@
     </section>
   </article>
 </main>
-

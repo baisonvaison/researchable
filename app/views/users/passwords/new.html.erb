@@ -13,18 +13,17 @@
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
               <%= devise_error_messages! %>
                 <div class="form-group form-row">
-                  <%= f.label :email, "メールアドレス", class: "col-md-2 col-form-label text-md-left mb-4" %><br />
+                  <%= f.label :email, "メールアドレス", class: " col-form-label text-md-left mb-4" %><br />
                   <div class="col-md-6">
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-9 text-center">
-                    <%= f.submit "パスワードの再発行をする", class: "btn btn-outline-primary", style: "margin-right: 75px;" %>
+                    <%= f.submit "パスワードの再発行をする", class: "btn btn-outline-primary" %>
                   </div>
                 </div>
               <% end %>
-              <%= render "users/shared/links" %>
             </div>
           </div>
         </div>                <!-- 全体を囲むコンテナ -->
@@ -32,3 +31,6 @@
     </section>
   </article>
 </main>
+
+
+

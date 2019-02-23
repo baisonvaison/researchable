@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
     t.string "department", default: "", null: false
     t.string "course", default: "", null: false
     t.string "labo", default: "", null: false
-    t.string "password_digest", default: "", null: false
+    t.string "cord", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,15 +63,13 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
   end
 
   create_table "protocols", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "affiliation_id"
-    t.bigint "user_id"
+    t.integer "affiliation_id", default: 0, null: false
+    t.integer "user_id", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.integer "parent_id", default: 0, null: false
     t.string "title", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["affiliation_id"], name: "index_protocols_on_affiliation_id"
-    t.index ["user_id"], name: "index_protocols_on_user_id"
   end
 
   create_table "users", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,10 +79,10 @@ ActiveRecord::Schema.define(version: 2019_02_03_115759) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "first_name", default: "", null: false
-    t.string "last_name", default: "0", null: false
+    t.string "last_name", default: "", null: false
     t.bigint "affiliation_id"
-    t.integer "status", default: 0, null: false
     t.string "avatar", default: "", null: false
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["affiliation_id"], name: "index_users_on_affiliation_id"

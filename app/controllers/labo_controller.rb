@@ -11,7 +11,6 @@ class LaboController < ApplicationController
   end
 
   def new
-
     @affiliation = Affiliation.new
   end
 

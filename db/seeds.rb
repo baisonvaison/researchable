@@ -50,7 +50,7 @@ Protocol.create!(affiliation: Affiliation.find(1),
     affiliation = Affiliation.find(1)
     user = User.find(n%5 + 1)
     status = n%3
-    parent_id = n + 2
+    parent_id = n + 1
     title = Faker::Movies::HarryPotter.character
     Protocol.create!(affiliation: affiliation,
                     user: user,

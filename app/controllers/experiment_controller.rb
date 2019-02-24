@@ -1,20 +1,27 @@
 class ExperimentController < ApplicationController
-  PER = 6
   before_action :authenticate_user!
-  before_action :experiments, only:[:index]
   
   def index
     @labo = Affiliation.find(current_user.affiliation_id)
-
+    @experiments = Experiment.page(params[:page]).per(6)
 
   end
 
   def show
     @experiment = Experiment.find(params[:id])
-    @category = Category.find(@experiment.category_id)
-    @protocol = Protocol.find(@experiment.protocol_id)
+    #コメント機能
+    @comments = Comment.where(experiment_id: @experiment.id).order(id: :asc)
+    @comment = current_user.comments.build
+    @comment = @experiment.comments.build
   end
-
+  
+  def comment_create
+    @comment = current_user.comments.build(comment_params)
+    @comment = @experiment.comments.build(comment_params)
+    @comment.save
+    redirect_to　experiment_show_path(@experiment)
+  end
+  
   def new
     @experiment = current_user.experiments.build
   end
@@ -40,21 +47,13 @@ class ExperimentController < ApplicationController
       params.require(:experiment).permit(:title, :image, :date, :overview, :protocol_id, :result, :category_id, :new_category)
     end
     
-    def experiments
-      @experiments = Experiment.page(params[:page]).per(PER)
-      @experiments.each do |experiment| #viewで呼び出すために必要なハッシュを追加
-        staff = User.find(experiment.user_id)
-        experiment.staff = staff.last_name + " " + staff.first_name
-        category = Category.find(experiment.category_id)
-        experiment.category = category[:category]
-        protocol = Protocol.find(experiment.protocol_id)
-        experiment.protocol = protocol.title
-      end
-    end
-    
     def new_category_save
       category = Category.create(category: @experiment.new_category)
       category.save
       @experiment[:category_id] = category.id
+    end
+    
+    def comment_params
+      params.require(:comment).permit(:comment)
     end
 end

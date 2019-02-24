@@ -11,10 +11,6 @@ class UserController < ApplicationController
       @custom_protocols = custom_protocols.page(params[:page]).per(6)
       experiments = Experiment.where(user_id: @user.id).order(id: :asc)
       @experiments = experiments.page(params[:page]).per(6)
-      @experiments.each do |experiment|
-        experiment.protocol = Protocol.find(experiment.protocol_id)
-        experiment.category = Category.find(experiment.category_id)
-      end
   end
   
   private

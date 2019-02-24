@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :protocols, only: [:index, :show, :new, :create, :destroy] do
-    resources :procedures, only: [:index, :show, :new, :create]
+    resources :procedures, only: [:create]
   end
+  resources :custom_protocols, only: [ :new]
 
   root 'protocols#new'
 

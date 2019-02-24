@@ -7,7 +7,7 @@ class ProtocolsController < ApplicationController
   def show
     protocol_id = params[:id]
     @protocol = Protocol.find(protocol_id)
-    @produces = Procedures.where(protocol_id: protocol_id)
+    @procedures = Procedure.where(protocol_id: @protocol.id)
   end
 
   def new
@@ -29,7 +29,7 @@ class ProtocolsController < ApplicationController
 
   private
   def create_params
-    params.require(:protocol).permit(:title,  procedures_attributes: [:text, :_destroy])
+    params.require(:protocol).permit(:title, :parent_id, procedures_attributes: [:text, :_destroy])
   end
 
 end

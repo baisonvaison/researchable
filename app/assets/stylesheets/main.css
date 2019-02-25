@@ -5,14 +5,38 @@
 }
 /*Googleフォントの「M PLUS Rounded 1c（自家製フォント工房）を使用*/
 
+html{
+  background: url(Admin/background.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+}
+
+body{
+  background: rgba(255,255,255, 0.5);
+  padding: 20px 0px 50px;
+  height: 100%;
+}
 
 /*researchableの背景写真*/
 #BGP-researchable{
   background:url(Admin/background.jpg);
   background-attachment: fixed;
   background-position: top;
+  background-size: cover;
 }
 /*BGP=BackGroundPictureの略*/
+
+/*次から自動ログインするの上下調整*/
+.login-continue{
+  height: 135px;
+}
+@media(max-width: 768px){
+  .login-continue{
+    height: auto;
+  }
+}
 
 
 /*背景写真の透過と縦幅の調整*/
@@ -277,11 +301,6 @@ header{
 .bg-info{
   margin:20px 50px!important;
 }
-
-
-
-
-
 
 
 

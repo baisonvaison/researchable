@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>プロトコル個別</title>
+</head>
+<body>
+  <div class="content_wrapper">
+    <div class="name_wrapper">
+      <%= @protocol.title %>
+    </div>
+    <div class="procedures_wrapper">
+      <% @procedures.each do |procedure| %>
+        <%= procedure.text %>
+      <% end %>
+    </div>
+    <div class="btn_wrapper">
+      <%= link_to "これをカスタム", new_custom_protocol_path(parent_id: @protocol.id ) %>
+    </div>
+  </div>
+</body>
+</html>

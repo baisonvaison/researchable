@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>プロトコルをカスタム</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title_wrapper">
+      <h1>プロトコルをカスタム</h1>
+    </div>
+    <div class="form_wrapper">
+      <%= form_with model: @protocol do |f| %>
+        <div class="form_content">
+          <p>プロトコル名</p>
+          <%= f.text_field :title %>
+        </div>
+    </div>
+      <div class="form_wrapper">
+        <%= f.fields :procedures do |e|%>
+          <div class="form_content">
+            <%= e.text_field :text %>
+          </div>
+        <% end %>
+      </div>
+      <%= f.hidden_field :parent_id %>
+      <%= f.submit '保存' %>
+    <% end %>
+  </div>
+</body>
+</html>

@@ -5,6 +5,11 @@ class UserController < ApplicationController
       @users = User.page(params[:page]).per(12)
   end
 
+  def new
+
+  end
+
+
   def show
       @user = User.find(params[:id])
       custom_protocols = Protocol.where(user_id: @user.id, status: 1).order(id: :asc) 

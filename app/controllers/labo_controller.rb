@@ -2,6 +2,7 @@ class LaboController < ApplicationController
   include LaboHelper
   #before_action :sign_in_required, only: [:show, :new, :create] 
   before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  before_action :current_user_is_admin, only: [:new, :index]
   def index
     @labos = Affiliation.all
   end

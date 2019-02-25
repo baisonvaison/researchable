@@ -1,5 +1,5 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-light fixed-top primary-nav1 wf-roundedmplus1c" style="background-color: rgba(248, 249, 250, 0.57)!important">
-    <a href="/admin" class="navbar-brand" style="color: black; font-size: 24px;"><strong>Researchable</strong></a>
+    <a ><strong><%= link_to "Researchable", root_path, class: "navbar-brand", style: "color: black; font-size: 24px;" %></strong></a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#nav1">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,8 +8,13 @@
         <li class="nav-item active">
           <%= link_to 'マイページ', edit_user_registration_path, class: "nav-link" %>
         </li>
+        <%# if current_user.admin? %>
+          <li class="nav-item active">
+            <%= link_to '管理者ページ', admin_path, class: "nav-link" %>
+          </li>
+        <%# end %>
         <li class="nav-item active">
-          <%= link_to 'カテゴリー', '/category', class: "nav-link" %>
+          <%= link_to '検索', search_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">研究室</a>

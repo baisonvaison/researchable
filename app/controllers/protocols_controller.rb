@@ -1,5 +1,6 @@
 class ProtocolsController < ApplicationController
   before_action :authenticate_user!
+  before_action :current_user_is_admin, only: [:new]
 
   def index
   end

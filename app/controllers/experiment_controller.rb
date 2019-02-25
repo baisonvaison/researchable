@@ -12,14 +12,13 @@ class ExperimentController < ApplicationController
     #コメント機能
     @comments = Comment.where(experiment_id: @experiment.id).order(id: :asc)
     @comment = current_user.comments.build
-    @comment = @experiment.comments.build
   end
   
   def comment_create
     @comment = current_user.comments.build(comment_params)
-    @comment = @experiment.comments.build(comment_params)
+    @comment[:experiment_id] = params[:id]
     @comment.save
-    redirect_to　experiment_show_path(@experiment)
+    redirect_to
   end
   
   def new
@@ -29,10 +28,9 @@ class ExperimentController < ApplicationController
   def create
     @experiment = current_user.experiments.build(experiment_params)
     new_category_save if !@experiment.new_category.empty?
-    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
-      redirect_to experiment_path
+      redirect_to experiment_show_path
     else
       flash[:alert] = 'エラーが発生しました。'
       render 'new'
@@ -48,7 +46,7 @@ class ExperimentController < ApplicationController
     end
     
     def new_category_save
-      category = Category.create(category: @experiment.new_category)
+      category = Category.create(category_name: @experiment.new_category)
       category.save
       @experiment[:category_id] = category.id
     end

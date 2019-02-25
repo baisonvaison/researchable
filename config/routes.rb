@@ -43,8 +43,9 @@ Rails.application.routes.draw do
     get  'experiment/show/:id' => 'experiment#show', as: "experiment_show"
     get  'experiment/new' => 'experiment#new', as: "new_experiment"
     post 'experiment/new' => 'experiment#create', as: "experiments"
-  #コメント用
-    post 'experiment/comment' => 'experiment#comment_create', as: "comment"
+    
+  #コメント
+    post 'experiment/show/:id' => 'experiment#comment_create', as: "comments"
 
   #研究室所属一覧
 
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
 
    #研究室パスワード移行ページ
     get  'search' => 'search#index'
+    post 'search/resutl' => 'search#result', as: 'searches'
 
 
   end

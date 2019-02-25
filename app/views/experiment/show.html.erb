@@ -26,7 +26,7 @@
               <p class="experiment-time">実験実施日<br>
                 <%= @experiment.date %></p>
               <p class="experiment-category">カテゴリー<br>
-                <%= @experiment.category.category %></p>
+                <%= @experiment.category.category_name %></p>
               <p class="experiment-protocol">利用したプロトコル<br>
                 <%= link_to "#{@experiment.protocol.title}", custom_show_path(@experiment.protocol) %></p>
             </div>
@@ -53,19 +53,20 @@
           </div>
         </div>
         </div>
+          <div>
+            <% @comments.each do |comment|%>
+              <%= comment.user.last_name + " " + comment.user.first_name %>
+              <%= comment.comment %><br/>
+            <% end %>
+          </div>
+            <%= form_for @comment, url: comments_path do |f| %>
+              <%= f.label :comment, "コメントを入力" %>
+              <%= f.text_area :comment, row: 3 %>
+              <%= f.submit "コメントする" %>
+            <% end %>
       </div>
     </section>
-    <div>
-    <% @comments.each do |comment|%>
-      <%= comment.user.last_name + " " + comment.user.first_name %>
-      <%= commnet.comment %><br/>
-    <% end %>
-    </div>
-    <%= form_for @comment do |f| %>
-      <%= f.label :comment, "コメントを入力" %>
-      <%= f.text_area :comment, row: 3 %>
-      <%= f.submit "コメントする" %>
-    <% end %>
+
   </article>
 </main>
 

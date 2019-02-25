@@ -61,7 +61,7 @@
 
                 <div class="form-group col-md-5 mb-5">
                   <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
-                  <%= f.collection_select :category_id, Category.all, :id, :category, prompt: "選択", class: "custom-select" %>
+                  <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
                   <%= f.text_field :new_category, class: "form-control" %>
                 </div>
 

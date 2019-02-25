@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-    validates :category, presence:true
+    validates :category_name, presence: true
     has_many :experiments
 end

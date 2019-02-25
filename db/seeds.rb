@@ -62,7 +62,7 @@ end
 
 10.times do |n|
     c = Faker::Music::RockBand.name
-    Category.create!(category: c)
+    Category.create!(category_name: c)
 end
 
 10.times do |n|

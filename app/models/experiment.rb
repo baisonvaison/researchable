@@ -2,10 +2,8 @@ class Experiment < ApplicationRecord
     belongs_to :user
     belongs_to :protocol 
     belongs_to :category
-    has_many :comments
-    attr_accessor :staff, :category, :protocol, :new_category
-    
-    default_scope -> { order(created_at: :desc) }
+    has_many :comments, dependent: :destroy
+    attr_accessor :new_category
       
     validates :title, presence: true, length: { maximum: 20 } #仮で２０とした。不要かも
     validates :date, presence: true

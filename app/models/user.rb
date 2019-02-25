@@ -6,9 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable#, :confirmable
          
   belongs_to :affiliation
-  has_many :experiments, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :protocols, dependent: :destroy
+  has_many :experiments
+  has_many :comments
+  has_many :protocols
          
   validates :first_name, presence: true
   validates :last_name, presence: true

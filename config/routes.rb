@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
-  
+
   devise_scope :user do
     authenticated :user do
       root 'labo#show', as: :authenticated_root
@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :protocols, only: [:index, :show, :new, :create, :destroy] do
-    resources :procedures, only: [:index, :show, :new, :create]
+    resources :procedures, only: [:create]
   end
+  resources :custom_protocols, only: [ :new]
 
 
   #ログイン＆新規登録画面
@@ -32,11 +33,14 @@ Rails.application.routes.draw do
     get  'labo/show' => 'labo#show'
     get  'labo/new' => 'labo#new', as: "new_affiliation"
     post 'labo/new' => 'labo#create', as: "affiliations"
-    
 
    #研究室パスワード移行ページ
     get  'labo_pass' => 'labo_pass#index'
 
+
+  #ログイン＆新規登録画面
+    root 'users#index'
+    get  'users/new' => 'users#new'
 
   #実験結果ページ
     get  '/experiment' => 'experiment#index'

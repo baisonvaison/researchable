@@ -49,13 +49,9 @@
             <div class="col-1"></div>
               <div class="col-10">
                   <div class="form-group col-md-8 mb-4">
-                    <label for="receipt">登録するカテゴリー（選択もしくは作成）</label>
-                    <select class="custom-select" id="receipt">
-                      <option>選択</option>
-                      <option>hoge1</option>
-                      <option>hoge2</option>
-                      <option>hoge3</option>
-                    </select>
+                    <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
+                    <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
+                    <%= f.text_field :new_category, class: "form-control" %>
                   </div>
                     <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
                   <% end %>

@@ -10,75 +10,23 @@
       <div class="BGP-Opacity2">
 
   <div class="container">        <!-- 全体を囲むコンテナ -->
-    <h1 class="R-TitleName3"><strong>~hogehoge研究室~</strong></h1>
+    <h1 class="R-TitleName3"><strong>~<%= @labo.labo %>研究室~</strong></h1>
   <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/result.png">実験結果</h2>
-
-
   <div class="d-sm-flex flex-wrap text-black">
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-
-
+    <% @experiments.each do |experiment| %>
+      <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
+        <%= link_to experiment_show_path(experiment), class: "A-Tag" do %>
+          <div class="A-TagEffect">
+            <h5>プロトコル名：<%= experiment.protocol.title %></h5>
+            <p class="mb-0">作成日時：<%= experiment.date %></p>
+            <p class="mb-0">作成者名：<%= experiment.user.last_name + " " + experiment.user.first_name %></p>
+            <p class="mb-0">カテゴリー名：<%= experiment.category.category_name %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-
+<%= paginate @experiments %>
 </div>        <!-- 全体を囲むコンテナ -->
 
       </div>

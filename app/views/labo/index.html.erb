@@ -1,3 +1,4 @@
+
 <nav>
 
 <%= render partial: "render/nav1" %>
@@ -13,42 +14,17 @@
           <i class="fas fa-school icon-blank"></i>登録済み研究室一覧</strong>
         </h1>
   <div class="d-sm-flex flex-wrap text-black">
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
-      <h3 class="Labo-Border">研究室名</h3>
-      <p class="mb-0 py-3">大学名：hogehoge</p>
-      <p class="mb-0">学部名：hogehoge</p>
-      <p class="mb-0 py-3">学科名：hogehoge</p>
-    </div>
+    <% @labos.each do |labo| %>
+      <div class="bg-info p-3 mb-2 mr-sm-2 Labo-Box">
+        <%#= link_to labo_show_path(labo) do リンクつけようとしたら崩れる%>
+        <h3 class="Labo-Border">研究室名:<%= labo.labo %></h3>
+        <p class="mb-0 py-3">大学名：<%= labo.university %></p>
+        <p class="mb-0">学部名：<%= labo.department %> </p>
+        <p class="mb-0 py-3">学科名：<%= labo.course %></p>
+        <p class="mb-0 py-3">所属人数：<%= User.where(affiliation_id: labo.id).count %></p>
+        <%# end %>
+      </div>
+    <% end %>
   </div>
 
 </div>        <!-- 全体を囲むコンテナ -->

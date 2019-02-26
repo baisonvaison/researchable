@@ -1,13 +1,15 @@
 class LaboController < ApplicationController
-
-  require "active_support/core_ext/object/duplicable"
   include LaboHelper
-  before_action :sign_in_required, only: [:show]
+  #before_action :sign_in_required, only: [:show, :new, :create] 
+  before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  before_action :current_user_is_admin, only: [:new, :index]
 
   def index
+    @labos = Affiliation.all
   end
 
   def show
+    @labo = Affiliation.find(current_user.affiliation_id)
   end
 
   def new
@@ -19,7 +21,6 @@ class LaboController < ApplicationController
     if Affiliation.find_by(cord: @affiliation[:cord])
       @affiliation=nil
       flash[:alert] = "入力された研究室記号はすでに使用されています。"
-      redirect_to '/labo/new'
     else
       if @affiliation.save
         flash[:notice] = "研究室が登録されました。"
@@ -28,7 +29,7 @@ class LaboController < ApplicationController
       else
         @affiliation=nil
         flash[:alert] = "もう一度やり直してください"
-        redirect_to '/labo/new'
+        redirect_to new_affiliation_path
       end
     end
 
@@ -42,7 +43,7 @@ class LaboController < ApplicationController
     $labo = Affiliation.find_by(cord: params[:labo][:cord])
     if $labo
       flash[:notice] = '研究室が確認できました。'
-      redirect_to '/users/sign_up'
+      redirect_to new_user_registration
     else
       render "retrieve_labo"
       flash[:alert] = "研究室が見つかりません"

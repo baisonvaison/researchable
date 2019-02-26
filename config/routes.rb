@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', shared: 'users/shared'}
 
   devise_scope :user do
-    root :to => 'devise/sessions#new'
+    authenticated :user do
+      root 'labo#show', as: :authenticated_root
+    end
+    unauthenticated do
+      root 'devise/sessions#new'
+    end
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
   end
@@ -13,13 +18,10 @@ Rails.application.routes.draw do
   end
   resources :custom_protocols, only: [ :new]
 
-  root 'protocols#new'
 
   #ログイン＆新規登録画面
-    #root 'users#index'
     get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'
     post 'users/labo' => 'labo#find_labo', as: "find_labo"
-    get  'users' => 'users#index'
     get  'thanks' => 'thanks#index'
 
      #管理画面トップ
@@ -41,13 +43,22 @@ Rails.application.routes.draw do
     get  'users/new' => 'users#new'
 
   #実験結果ページ
-    get  'experiment' => 'experiment#index'
-    get  'experiment/show' => 'experiment#show'
-    get  'experiment/new' => 'experiment#new'
+    get  '/experiment' => 'experiment#index'
+    get  'experiment/show/:id' => 'experiment#show', as: "experiment_show"
+    get  'experiment/new' => 'experiment#new', as: "new_experiment"
+    post 'experiment/new' => 'experiment#create', as: "experiments"
+    
+  #コメント
+    post 'experiment/show/:id' => 'experiment#comment_create', as: "comments"
 
   #研究室所属一覧
+
+
+  get 'pages/show'
+    get  'login' => 'login#index'
+    get  'login/new'  =>  'login#new'
     get  'user' => 'user#index'
-    get  'user/show' => 'user#show'
+    get  'user/show/:id' => 'user#show', as: "user_show"
 
   #スタンダード(テンプレート)プロトコル一覧
     get  'standard' => 'standard#index'
@@ -61,14 +72,12 @@ Rails.application.routes.draw do
 
   #カスタムプロトコル一覧
     get  'custom' => 'custom#index'
-    get  'custom/show' => 'custom#show'
+    get  'custom/show/:id' => 'custom#show', as: "custom_show"
     get  'custom/new' => 'custom#new'
-
-  #研究室パスワード移行ページ
-    get  'category' => 'category#index'
 
    #研究室パスワード移行ページ
     get  'search' => 'search#index'
+    post 'search/resutl' => 'search#result', as: 'searches'
 
 
   end

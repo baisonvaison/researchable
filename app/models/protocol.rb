@@ -1,6 +1,6 @@
 class Protocol < ApplicationRecord
-  # belongs_to :user
-  # belongs_to :affiliation
+  belongs_to :user
+  belongs_to :affiliation
   has_many :procedures, inverse_of: :protocol, dependent: :destroy
   has_many :experiments
 

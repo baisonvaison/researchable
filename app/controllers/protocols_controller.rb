@@ -23,6 +23,7 @@ class ProtocolsController < ApplicationController
 
   def create
     protocol = Protocol.new(create_params)
+    protocol.status = status_params ? status_params.values.first.to_i : 0
     protocol.affiliation_id = current_user.affiliation.id
     protocol.user_id = current_user.id
     protocol.save
@@ -31,6 +32,10 @@ class ProtocolsController < ApplicationController
   private
   def create_params
     params.require(:protocol).permit(:title, :parent_id, procedures_attributes: [:text, :_destroy])
+  end
+
+  def status_params
+    params.require(:protocol).permit(:status)
   end
 
 end

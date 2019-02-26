@@ -8,5 +8,10 @@ class BaseController < ApplicationController
   end
 
   def new
+    if current_user.admin = 0
+      @protocol = Protocol.new
+      @protocol.procedures.build
+    end
+    #elseに関しては別ブランチでrescueする処理作る。
   end
 end

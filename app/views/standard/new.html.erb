@@ -16,90 +16,38 @@
               </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-1"></div>
+        <%= form_with model: @protocol do |f| %>
+          <div class="row justify-content-center">
+            <div class="col-1"></div>
             <div class="col-10">
-              <form>
                 <div class="form-group mb-5">
                   <label class="col-md-8 col-form-label mb-2" for="B_Name">タイトル（テンプレートプロトコルの名称）</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" id="B_Name">
+                    <%= f.text_field :title, class: "form-control", id: "B_Name" %>
                   </div>
                 </div>
-              </form>
             </div>
-        </div>
-      </div>
+          </div>
         <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
           <div class="row justify-content-center">
           <div class="col-1"></div>
             <div class="col-10">
-              <form>
-              <label for="receipt" class="mb-3">実際の手順</label>
-               <div class="row  mb-5">
-                  <div class="col-md-1 rounded-left Protocol-Procedure" style="">
-                    <h4>1</h4>
+              <%= f.fields :procedures do |e|%>
+                <label for="receipt" class="mb-3">実際の手順</label>
+                  <div class="ele">
+                    <%= render 'procedure_fields', f: e %>
                   </div>
-                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
+                  <div class="ele">
+                    <%= link_to_add_association "手順を追加", f, :procedures, class: "btn btn-outline-primary" %>
                   </div>
-                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <button class="btn btn-outline-primary mb-4">手順を追加
-                    </button><br>
-                    <button class="btn btn-outline-danger">手順を削除
-                    </button>
-                  </div>
-                </div>
-                <div class="row  mb-5">
-                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <h4>2</h4>
-                  </div>
-                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
-                  </div>
-                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <button class="btn btn-outline-primary mb-4">手順を追加
-                    </button><br>
-                    <button class="btn btn-outline-danger">手順を削除
-                    </button>
-                  </div>
-                </div>
-                <div class="row  mb-5">
-                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <h4>3</h4>
-                  </div>
-                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
-                  </div>
-                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <button class="btn btn-outline-primary mb-4">手順を追加
-                    </button><br>
-                    <button class="btn btn-outline-danger">手順を削除
-                    </button>
-                  </div>
-                </div>
-                <div class="row  mb-5">
-                  <div class="col-md-1 rounded-left" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <h4>4</h4>
-                  </div>
-                  <div class="col-md-7" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <textarea rows="4" class="form-control" id="Q_Ask"></textarea>
-                  </div>
-                  <div class="col-md-3 mt-4 mt-md-0 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <button class="btn btn-outline-primary mb-4">手順を追加
-                    </button><br>
-                    <button class="btn btn-outline-danger">手順を削除
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <% end %>
           </div>
+        </div>
         </div>                <!-- 全体を囲むコンテナ -->
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-1"></div>
               <div class="col-10">
-                <form>
                   <div class="form-group col-md-8 mb-4">
                     <label for="receipt">登録するカテゴリー（選択もしくは作成）</label>
                     <select class="custom-select" id="receipt">
@@ -109,11 +57,9 @@
                       <option>hoge3</option>
                     </select>
                   </div>
-
-                  <button class="btn btn-register">
-                    <%= link_to "登録する", '/',class: 'btn-Atag' %>
-                  </button>
-              </form>
+                    <%= f.hidden_field :status %>
+                    <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
+                  <% end %>
             </div>
           </div>
         </div>
@@ -122,5 +68,3 @@
     </section>
   </article>
 </main>
-
-

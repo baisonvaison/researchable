@@ -43,7 +43,7 @@ class LaboController < ApplicationController
     $labo = Affiliation.find_by(cord: params[:labo][:cord])
     if $labo
       flash[:notice] = '研究室が確認できました。'
-      redirect_to new_user_registration
+      redirect_to new_user_registration_path
     else
       render "retrieve_labo"
       flash[:alert] = "研究室が見つかりません"

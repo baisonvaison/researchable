@@ -52,6 +52,15 @@
              </p>
           </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10 mt-5" style="margin-top: 20px">
+            <h4>タグ</h4>
+            <hr class="mt-0 mb-4">
+            <% @experiment.tag_list.each do |tag| %>
+              <span class="badge badge-primary mr-1 p-2= tag"><%= link_to tag, experiment_path(tag_name: tag), class: "text-white" %></span>
+            <% end %>
+          </div>
+        </div>
         </div>
           <div>
             <% @comments.each do |comment|%>

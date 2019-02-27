@@ -1,10 +1,6 @@
 class LaboPassController < ApplicationController
   before_action :authenticate_user!
   def index
-
-  end
-
-  def labo_pass
-
+    @labo = Affiliation.find(params[:id])
   end
 end

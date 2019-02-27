@@ -86,6 +86,7 @@ end
     u = User.find(n%20 + 1)
     c = Category.find(n%10 + 1)
     i = Faker::Avatar.image("my-own-slug", "50x50", "jpg")
+    e = u.affiliation
     Experiment.create!(title: t,
                         date: d,
                         overview: o,
@@ -93,7 +94,8 @@ end
                         protocol: pro,
                         user: u,
                         category: c,
-                        image: i)
+                        image: i,
+                        affiliation: e)
 end
 
 

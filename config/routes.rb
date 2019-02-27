@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
     get '/users/sign_out' => 'users/sessions#destroy', as: "destroy_session"
     get '/users/delete' => 'users/registrations#destroy', as: "destroy_registration"
+    get 'users/labo' => 'users/registrations#retrieve_labo', as: 'retrieve_labo'
+    post 'users/labo' => 'users/registrations#find_labo', as: "find_labo"
   end
 
   resources :protocols, only: [:index, :show, :new, :create, :destroy] do
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
 
 
   #ログイン＆新規登録画面
-    get 'users/labo' => 'labo#retrieve_labo', as: 'retrieve_labo'
-    post 'users/labo' => 'labo#find_labo', as: "find_labo"
     get  'thanks' => 'thanks#index'
 
      #管理画面トップ
@@ -30,20 +30,15 @@ Rails.application.routes.draw do
 
    #研究室新規登録ページ&研究室ページ
     get  'labo' => 'labo#index'
-    get  'labo/show' => 'labo#show'
+    get  'labo/show/:id' => 'labo#show', as: "labo_show"
     get  'labo/new' => 'labo#new', as: "new_affiliation"
     post 'labo/new' => 'labo#create', as: "affiliations"
 
    #研究室パスワード移行ページ
-    get  'labo_pass' => 'labo_pass#index'
-
-
-  #ログイン＆新規登録画面
-    root 'users#index'
-    get  'users/new' => 'users#new'
+    get  'labo_pass/:id' => 'labo_pass#index', as: "labo_pass"
 
   #実験結果ページ
-    get  '/experiment' => 'experiment#index'
+    get  'experiment' => 'experiment#index'
     get  'experiment/show/:id' => 'experiment#show', as: "experiment_show"
     get  'experiment/new' => 'experiment#new', as: "new_experiment"
     post 'experiment/new' => 'experiment#create', as: "experiments"
@@ -62,12 +57,12 @@ Rails.application.routes.draw do
 
   #スタンダード(テンプレート)プロトコル一覧
     get  'standard' => 'standard#index'
-    get  'standard/show' => 'standard#show'
+    get  'standard/show/:id' => 'standard#show', as: "standard_show"
     get  'standard/new' => 'standard#new'
 
   #ベースプロトコル一覧
     get  'base' => 'base#index'
-    get  'base/show' => 'base#show'
+    get  'base/show/:id' => 'base#show', as: "base_show"
     get  'base/new' => 'base#new'
 
   #カスタムプロトコル一覧
@@ -75,9 +70,8 @@ Rails.application.routes.draw do
     get  'custom/show/:id' => 'custom#show', as: "custom_show"
     get  'custom/new' => 'custom#new'
 
-   #研究室パスワード移行ページ
+
     get  'search' => 'search#index'
-    post 'search/resutl' => 'search#result', as: 'searches'
 
 
   end

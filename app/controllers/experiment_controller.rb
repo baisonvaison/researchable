@@ -2,9 +2,17 @@ class ExperimentController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @labo = Affiliation.find(current_user.affiliation_id)
-    @experiments = Experiment.page(params[:page]).per(6)
-
+    if current_user.admin
+      @labo = Affiliation.find(params[:labo_id])
+    else
+      @labo = current_user.affiliation
+    end
+    # タグで検索
+    if params[:tag_name]
+      @experiments = @labo.experiments.tagged_with("#{params[:tag_name]}").page(params[:page]).per(6)
+    else
+      @experiments = @labo.experiments.page(params[:page]).per(6)
+    end
   end
 
   def show
@@ -23,14 +31,17 @@ class ExperimentController < ApplicationController
   
   def new
     @experiment = current_user.experiments.build
+    @protocols = Protocol.where(affiliation_id: current_user.affiliation_id)
   end
   
   def create
+    @protocols = Protocol.where(affiliation_id: current_user.affiliation_id)
     @experiment = current_user.experiments.build(experiment_params)
+    @experiment[:affiliation_id] = current_user.affiliation_id
     new_category_save if !@experiment.new_category.empty?
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
-      redirect_to experiment_show_path
+      redirect_to experiment_show_path(@experiment)
     else
       flash[:alert] = 'エラーが発生しました。'
       render 'new'
@@ -42,7 +53,7 @@ class ExperimentController < ApplicationController
   
   private
     def experiment_params
-      params.require(:experiment).permit(:title, :image, :date, :overview, :protocol_id, :result, :category_id, :new_category)
+      params.require(:experiment).permit(:title, :image, :date, :overview, :protocol_id, :result, :category_id, :new_category, :tag_list)
     end
     
     def new_category_save

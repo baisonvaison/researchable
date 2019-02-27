@@ -30,5 +30,15 @@ class Protocol < ApplicationRecord
       procedure.save!
     end
   end
-
+  
+  #検索機能
+  def self.search(keyword, num, user)
+    return Protocol.where("status =? AND affiliation_id = ?", num, user.affiliation_id) unless keyword
+    Protocol.where("status = ? AND affiliation_id = ? AND title LIKE ?", num, user.affiliation_id, "%#{keyword}%").distinct
+  end
+  
+  def self.search_admin(keyword, num)
+    return Protocol.where(status: num) unless keyword
+    Protocol.where("status = ? AND title LIKE ?", num, "%#{keyword}%").distinct
+  end
 end

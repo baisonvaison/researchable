@@ -1,21 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>プロトコル個別</title>
-</head>
-<body>
-  <div class="content_wrapper">
-    <div class="name_wrapper">
-      <%= @protocol.title %>
-    </div>
-    <div class="procedures_wrapper">
-      <% @procedures.each do |procedure| %>
-        <%= procedure.text %>
-      <% end %>
-    </div>
-    <div class="btn_wrapper">
-      <%= link_to "これをカスタム", new_custom_protocol_path(parent_id: @protocol.id ) %>
-    </div>
-  </div>
-</body>
-</html>
+<nav>
+  <%= render partial: "render/nav1" %>
+</nav>
+
+
+<main class="MakeStandard-screen wf-roundedmplus1c">
+  <article>
+    <section id="BGP-researchable" style="">
+      <div class="BGP-Opacity1" style="padding: 125px 0px 0px;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-0"></div>
+            <div class="col-11">
+              <div class="col-md-8">
+                <h1 class="mt-4 mb-5"><img class="icon-blank" src="/assets/Admin/file.png"><strong><%= kind_of_protocol(@protocol.status) %></strong></h1>
+              </div>
+            </div>
+          <div class="col-0"></div>
+            <div class="col-10">
+              <form>
+                <div class="form-group mb-5">
+                  <h2><%= @protocol.title %></h2>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+          <div class="col-1"></div>
+            <div class="col-10">
+              <label for="receipt" class="mb-3">実際の手順</label>
+              <%= @procedures.each do |procedure| %>
+                <div class="row  mb-5">
+                  <div class="col-md-10 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
+                    <p><%= procedure.text %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>                <!-- 全体を囲むコンテナ -->
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-0"></div>
+              <div class="col-10">
+                <%= link_to "これをカスタム
+                ", custom_new_path(parent_id: @protocol.id), class: "btn btn-outline-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>                <!-- 全体を囲むコンテナ -->
+      </div>
+    </section>
+  </article>
+</main>

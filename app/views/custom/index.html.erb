@@ -13,20 +13,20 @@
   <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">カスタムプロトコル</h2>
 
   <div class="d-sm-flex flex-wrap text-black">
-    <% @customs.each do |custom| %>
+    <%= @protocols.each do |protocol| %>
       <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-        <%= link_to custom_show_path(custom), class: "A-Tag" do %>
+        <%= link_to protocol_path(id: protocol.id), class: "A-Tag" do %>
           <div class="A-TagEffect">
-            <h5>プロトコル名：<%= custom.title %></h5>
-            <p class="mb-0">作成日時：<% custom.created_at %></p>
-            <p class="mb-0">作成者名：<%= User.find(custom.user_id).last_name + " " + User.find(custom.user_id).first_name %></p>
-            <!--p class="mb-0">カテゴリー名：実装方法不明のため一旦コメントアウト</p-->
+            <h5>プロトコル名：<%= protocol.title %></h5>
+            <p class="mb-0">作成日時：<%= protocol.created_at.strftime('%Y/%m/%d') %></p>
+            <p class="mb-0">作成者名：<%= user_name(protocol.user) %></p>
+            <p class="mb-0">カテゴリー名：<%= protocol.category.category_name %></p>
           </div>
         <% end %>
       </div>
-    <% end %>
+    <% end%>
+    <%= paginate @protocols %>
   </div>
-      <%= paginate @customs %>
 
 </div>        <!-- 全体を囲むコンテナ -->
       </div>

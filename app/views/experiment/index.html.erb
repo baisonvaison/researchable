@@ -17,10 +17,14 @@
       <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
         <%= link_to experiment_show_path(experiment), class: "A-Tag" do %>
           <div class="A-TagEffect">
-            <h5>プロトコル名：<%= experiment.protocol.title %></h5>
+            <h5>実験タイトル：<%= experiment.title %></h5>
+            <p class="mb-0">プロトコル名：<%= experiment.protocol.title %></p>
             <p class="mb-0">作成日時：<%= experiment.date %></p>
             <p class="mb-0">作成者名：<%= experiment.user.last_name + " " + experiment.user.first_name %></p>
             <p class="mb-0">カテゴリー名：<%= experiment.category.category_name %></p>
+            <% experiment.tag_list.each do |tag| %>
+              <span class="badge badge-primary mr-1 p-2= tag"><%= tag %></span>
+            <% end %>
           </div>
         <% end %>
       </div>

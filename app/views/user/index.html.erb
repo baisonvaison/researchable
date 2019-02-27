@@ -9,7 +9,7 @@
     <section id="BGP-researchable">
       <div class="BGP-Opacity1" style="padding-top: 100px;">
 <div class="container">
-  <h1 class="R-TitleName3"><strong>~hogehoge研究室~</strong></h1>
+  <h1 class="R-TitleName3"><strong>~研究室：<%= @labo.labo %>~</strong></h1>
   <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/member.png" style="">所属メンバー</h2>
 </div>
 <div class="container">        <!-- 全体を囲むコンテナ -->
@@ -20,7 +20,7 @@
         <class="media A-TagEffect">
           <%#= image_tag user.avatar.url, class: "Member-Avatar mr-3" %>
           <div class="media-body" style="">
-            <h4><%= "Adimn:  " if user.admin %><%= user.last_name + " " + user.first_name %></h4>
+            <h4><%= "Adimn: " if user.admin %><%= user.last_name + " " + user.first_name %></h4>
           </div>
         </div>
         <% end %>

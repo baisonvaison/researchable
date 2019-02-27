@@ -7,6 +7,8 @@ class Protocol < ApplicationRecord
 
   attr_accessor :new_category
 
+  acts_as_taggable
+
   accepts_nested_attributes_for :procedures, reject_if: :all_blank, allow_destroy: true
 
   validates :title, presence: true

@@ -33,11 +33,15 @@
               <%= @procedures.each do |procedure| %>
                 <div class="row  mb-5">
                   <div class="col-md-10 rounded-right" style="background: rgba(255, 252, 252, 0.56); padding: 20px;">
-                    <p><%= procedure.text %></p>
+                    <p><%= simple_format(procedure.text) %></p>
                   </div>
                 </div>
               <% end %>
             </div>
+            <div class="col-10">
+              <% @protocol.tag_list.each do |tag| %>
+                <span class="label label-primary"><%= tag %></span>
+              <% end %>
           </div>                <!-- 全体を囲むコンテナ -->
         <div class="container-fluid">
           <div class="row justify-content-center">

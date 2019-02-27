@@ -19,7 +19,7 @@ class ProtocolsController < ApplicationController
 
   private
   def create_params
-    params.require(:protocol).permit(:title, :parent_id, :category_id, :new_category, procedures_attributes: [:text, :_destroy])
+    params.require(:protocol).permit(:title, :parent_id, :category_id, :new_category, :tag_list, procedures_attributes: [:text, :_destroy])
   end
 
   def status_params

@@ -8,6 +8,7 @@ class CreateExperiments < ActiveRecord::Migration[5.2]
       t.references :protocol, foreign_key: true
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
+      t.references :affiliation, foreign_key: true
       t.string :image, null: false, default: ""
 
       t.timestamps

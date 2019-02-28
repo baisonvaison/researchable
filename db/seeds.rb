@@ -3,13 +3,14 @@ Affiliation.create!(university: "わせだ",
                     course: "なし",
                     labo: "井上",
                     cord: "11111111")
+
 10.times do |n|
     university = Faker::University.name
     department ="しょう#{n+1}@"
     course = "なし"
     labo = Faker::JapaneseMedia::DragonBall.character
-    cord = "11111111"
-    Affiliation.create(university: university,
+    cord = "hogehoge#{n+1}"
+    Affiliation.create!(university: university,
                         department: department,
                         course: course,
                         labo: labo,
@@ -40,35 +41,37 @@ User.create!(email: "researchable0214@gmail.com",
                 password_confirmation: password)
 end
 
-Protocol.create!(affiliation: Affiliation.find(1),
-                user: User.find(1),
-                status: 0,
-                parent_id: 0,
-                title: Faker::Movies::HarryPotter.character)
+10.times do |n|
+    c = Faker::Music::RockBand.name
+    Category.create!(category_name: c)
+end
 
 40.times do |n|
     affiliation = Affiliation.find(1)
     user = User.find(n%5 + 1)
     status = n%3
     parent_id = n + 1
+    category = Category.find(rand(1..10))
     title = Faker::Movies::HarryPotter.character
     Protocol.create!(affiliation: affiliation,
                     user: user,
                     status: status,
                     parent_id: parent_id,
+                    category: category,
                     title: title)
 end
 
+Protocol.create!(affiliation: Affiliation.find(1),
+                user: User.find(1),
+                status: 0,
+                parent_id: 0,
+                category: Category.find(rand(1..10)),
+                title: Faker::Movies::HarryPotter.character)
 
-10.times do |n|
-    c = Faker::Music::RockBand.name
-    Category.create!(category_name: c)
-end
-
-10.times do |n|
-    protocol = Protocol.find(n+1)
+70.times do |n|
+    protocol = Protocol.find(rand(1..40))
     text = Faker::Quotes::Shakespeare.hamlet_quote
-    position = n + 10
+    position = n + 1
     Procedure.create!(protocol: protocol,
                         text: text,
                         position: position)
@@ -83,6 +86,7 @@ end
     u = User.find(n%20 + 1)
     c = Category.find(n%10 + 1)
     i = Faker::Avatar.image("my-own-slug", "50x50", "jpg")
+    e = u.affiliation
     Experiment.create!(title: t,
                         date: d,
                         overview: o,
@@ -90,7 +94,8 @@ end
                         protocol: pro,
                         user: u,
                         category: c,
-                        image: i)
+                        image: i,
+                        affiliation: e)
 end
 
 

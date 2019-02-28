@@ -6,4 +6,5 @@ class Affiliation < ApplicationRecord
     validates :cord, presence: true, length: { minimum: 8 }
     has_many :users
     has_many :protocols
+    has_many :experiments
 end

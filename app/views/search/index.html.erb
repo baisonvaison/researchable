@@ -11,227 +11,94 @@
         <div class="container">        <!-- 全体を囲むコンテナ -->
           <div class="row">
             <div class="col-md-7">
-              <h1 class=""><strong>~hogehoge研究室
-             </strong><span style="font-size: 27px;">(Keywordの検索結果)</span></h1>
+              <h1 class=""><strong>検索ワードを一つ入力してください。<br/>
+             </strong><span style="font-size: 27px;">検索ワード：<%= @keyword%></span></h1>
             </div>
             <div class="col-md-5 mt-2">
-              <form class="form-inline ml-auto">
+              <%= form_tag search_path, method: 'get', class: "form-inline ml-auto" do %>
+                <%#= select_tag :num, options_for_select([["ベースプロトコル", 0], ["カスタムプロトコル", 1], ["テンプレートプロトコル", 2], ["実験結果", 3]]) %>
                 <label class="sr-only" for="kw">検索キーワード</label>
-                <input type="search" class="form-control form-control-sm mr-sm-2 my-2 my-md-0"
-                       placeholder="キーワード" id="kw">
-                <button type="submit" class="btn btn-primary btn-sm my-2 my-md-0">検索</button>
-              </form>
+                <%= text_field_tag :keyword, "", placeholder: "タイトル検索", class: "form-control form-control-sm mr-sm-2 my-2 my-md-0" %>
+                <%= submit_tag "検索", class: "btn btn-primary btn-sm my-2 my-md-0" %>
+              <% end %>
             </div>
           </div>
         </div>        <!-- 全体を囲むコンテナ -->
- <div class="container">        <!-- 全体を囲むコンテナ -->
+<div class="container">        <!-- 全体を囲むコンテナ -->
+  <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">ベースプロトコル</h2>
+  <div class="d-sm-flex flex-wrap text-black">
+    <% @bases.each do |search| %>
+    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
+      <%= link_to search, class: "A-Tag" do %>
+        <div class="A-TagEffect">
+          <h5>プロトコル名：<%= search.title%></h5>
+          <p class="mb-0">作成日時：<%= search.created_at %></p>
+          <p class="mb-0">作成者名：<%= search.user.last_name + " " + search.user.first_name %></p>
+          <p class="mb-0">カテゴリー名：今後実装予定</p>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+    <%= paginate @bases %>
+  </div>
+</div>
+<div class="container">        <!-- 全体を囲むコンテナ -->
+  <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">カスタムプロトコル</h2>
+  <div class="d-sm-flex flex-wrap text-black">
+    <% @customs.each do |search| %>
+    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
+      <%= link_to search, class: "A-Tag" do %>
+        <div class="A-TagEffect">
+          <h5>プロトコル名：<%= search.title %></h5>
+          <p class="mb-0">作成日時：<%= search.created_at  %></p>
+          <p class="mb-0">作成者名：<%= search.user.last_name + " " + search.user.first_name %></p>
+          <p class="mb-0">カテゴリー名：今後実装予定</p>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+    <%= paginate @customs %>
+  </div>
+</div>
+<div class="container">        <!-- 全体を囲むコンテナ -->
   <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">テンプレートプロトコル</h2>
-
   <div class="d-sm-flex flex-wrap text-black">
+    <% @templates.each do |search| %>
     <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
+      <%= link_to search, class: "A-Tag" do %>
         <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
+          <h5>プロトコル名：<%= search.title %></h5>
+          <p class="mb-0">作成日時：<%= search.created_at %></p>
+          <p class="mb-0">作成者名：<%= search.user.last_name + " " + search.user.first_name %></p>
+          <p class="mb-0">カテゴリー名：今後実装予定</p>
         </div>
       <% end %>
     </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/standard/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
+    <%= paginate @templates %>
   </div>
-
-</div>        <!-- 全体を囲むコンテナ -->
-
+</div>
 <div class="container">        <!-- 全体を囲むコンテナ -->
-  <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">ベース・カスタムプロトコル</h2>
+  <h2 class="my-5"><img src="/assets/Admin/result.png" style="margin-right: 10px;">実験結果</h2>
   <div class="d-sm-flex flex-wrap text-black">
+    <% @experiments.each do |search| %>
     <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/base/show', class: "A-Tag" do %>
+      <%= link_to search, class: "A-Tag" do %>
         <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
+          <h5>実験タイトル：<%= search.title %></h5>
+          <p class="mb-0">プロトコル名：<%= search.protocol.title %></p>
+          <p class="mb-0">作成日時：<%= search.date %></p>
+          <p class="mb-0">作成者名：<%= search.user.last_name + " " + search.user.first_name %></p>
+          <p class="mb-0">カテゴリー名：<%= search.category.category_name %></p>
         </div>
       <% end %>
     </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/custom/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/base/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/custom/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/base/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/custom/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
+    <%= paginate @experiments %>
   </div>
-
-</div>        <!-- 全体を囲むコンテナ -->
-
-<div class="container">        <!-- 全体を囲むコンテナ -->
-  <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/result.png">実験結果</h2>
-
-
-  <div class="d-sm-flex flex-wrap text-black">
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="bg-info p-3 mb-2 mr-sm-2 Custom-Box">
-      <%= link_to '/experiment/show', class: "A-Tag" do %>
-        <div class="A-TagEffect">
-          <h5>プロトコル名：hogehogehoge</h5>
-          <p class="mb-0">作成日時：</p>
-          <p class="mb-0">作成者名：</p>
-          <p class="mb-0">カテゴリー名：</p>
-        </div>
-      <% end %>
-    </div>
-
-
-  </div>
-
-</div>        <!-- 全体を囲むコンテナ -->
+</div>
 
       </div>
     </section>
   </article>
 </main>
-

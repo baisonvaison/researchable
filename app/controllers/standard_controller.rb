@@ -1,9 +1,7 @@
 class StandardController < ApplicationController
   before_action :authenticate_user!
   def index
-  end
-
-  def show
+    @protocols = Protocol.where(status: Protocol::TEMPLATE).page(params[:page]).per(10)
   end
 
   def new

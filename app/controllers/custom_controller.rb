@@ -1,12 +1,15 @@
 class CustomController < ApplicationController
   before_action :authenticate_user!
-  before_action :customs, only:[:index]
-  
-  def index
-  end
 
-  def show
-    @custom = Protocol.find params[:id]
+  def index
+    @labo =
+    if current_user.admin
+      Affiliation.find(params[:labo_id])
+    else
+      current_user.affiliation
+    end
+
+    @protocols = Protocol.where(affiliation_id: @labo.id).where(status: Protocol::CUSTOM).page(params[:page]).per(10)
   end
 
   def new
@@ -23,13 +26,5 @@ class CustomController < ApplicationController
     end
     #elseに関しては別ブランチでrescueする処理作る。
   end
-  
-  private
-    def customs
-      @customs = Protocol.where(status: 1).order(:id)
-      @customs = Protocol.page(params[:page]).per(12)
-      @labo = Affiliation.find(current_user.affiliation_id)
-    end
-  
-  
+
 end

@@ -24,7 +24,8 @@ User.create!(email: "researchable0214@gmail.com",
                     avatar: Faker::Avatar.image,
                     admin: 1,
                     password: "111111",
-                    password_confirmation: "111111")
+                    password_confirmation: "111111",
+                    confirmed_at: DateTime.now)
 100.times do |n|
     first_name  = Faker::Name.name
     last_name = "たけだ"
@@ -38,7 +39,8 @@ User.create!(email: "researchable0214@gmail.com",
                 avatar: "",
                 admin: false,
                 password: password,
-                password_confirmation: password)
+                password_confirmation: password,
+                confirmed_at: DateTime.now)
 end
 
 10.times do |n|

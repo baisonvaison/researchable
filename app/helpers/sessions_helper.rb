@@ -1,5 +1,5 @@
 module SessionsHelper
-    
+
     # 渡されたユーザーをログイン
   def log_in(user)
     session[:user_id] = user.id
@@ -20,7 +20,7 @@ module SessionsHelper
   # 記憶トークン (cookie) に対応するユーザーを返す
   def current_user
   end
-  
+
   # 記憶したURL (もしくはデフォルト値) にリダイレクト
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

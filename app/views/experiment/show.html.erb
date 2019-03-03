@@ -13,14 +13,18 @@
             <div class="col-md-0"></div>
               <div class="col-md-10">
                 <h1 class="R-TitleName3"><strong><%= @experiment.title %></strong></h1>
-                </h1>
               </div>
-            </div>
           </div>
-      <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+        </div>
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
           <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-4 mt-3">
               <%#= image_tag @experiment.image.url, class: "img-fluid", style: "height: 200px; width: auto; border-radius: 5px;" %>
+              <p class="tag">タグ<br>
+                <% @experiment.tag_list.each do |tag| %>
+                  <span class="badge badge-primary mr-1 p-2= tag"><%= link_to tag, experiment_path(tag_name: tag), class: "text-white" %></span>
+                <% end %>
+              </p>
             </div>
             <div class="col-md-6 mt-4 mt-md-0">
               <p class="experiment-time">実験実施日<br>
@@ -33,49 +37,51 @@
           </div>
         </div>
         <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
-        <div class="row justify-content-center">
-          <div class="col-md-10 mt-5" style="margin-top: 20px;">
-            <h4>実験の概要</h4>
-            <hr class="mt-0 mb-4">
-            <p>
-              <%= @experiment.overview %>
-            </p>
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5" style="margin-top: 20px;">
+              <h4>実験の概要</h4>
+              <hr class="mt-0 mb-4">
+              <p>
+                <%= @experiment.overview %>
+              </p>
+            </div>
           </div>
         </div>
-        </div>
-        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
-        <div class="row justify-content-center">
-          <div class="col-md-10 mt-5" style="margin-top: 20px">
-            <h4>実験の結果</h4>
-            <hr class="mt-0 mb-4">
-            <p><%= @experiment.result %>
-             </p>
+        <div class="container-fluid mb-5">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5" style="margin-top: 20px">
+              <h4>実験の結果</h4>
+              <hr class="mt-0 mb-4">
+              <p><%= @experiment.result %>
+               </p>
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-10 mt-5" style="margin-top: 20px">
-            <h4>タグ</h4>
-            <hr class="mt-0 mb-4">
-            <% @experiment.tag_list.each do |tag| %>
-              <span class="badge badge-primary mr-1 p-2= tag"><%= link_to tag, experiment_path(tag_name: tag), class: "text-white" %></span>
-            <% end %>
+        <div class="container-fluid mb-5">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5" style="margin-top: 20px">
+              <div class="COMMENT">
+                <div class="comment2">
+                  <%= form_for @comment, url: comments_path do |f| %>
+                    <div class="comment3"><h4><%= f.label :comment, "この実験へのコメント" %></h4>
+                    </div>
+                    <hr class="mt-0 mb-4">
+                    <div class="comment1">
+                      <% @comments.each do |comment|%>
+                        <%= comment.user.last_name + " " + comment.user.first_name %>
+                        <%= comment.comment %><br/>
+                      <% end %>
+                    </div>
+                    <div class="comment4"><%= f.text_area :comment, class: "col-md-8 mb-2" %></div>
+                    <div class="comment5"><%= f.submit "コメントする" %></div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-          <div>
-            <% @comments.each do |comment|%>
-              <%= comment.user.last_name + " " + comment.user.first_name %>
-              <%= comment.comment %><br/>
-            <% end %>
-          </div>
-            <%= form_for @comment, url: comments_path do |f| %>
-              <%= f.label :comment, "コメントを入力" %>
-              <%= f.text_area :comment, row: 3 %>
-              <%= f.submit "コメントする" %>
-            <% end %>
       </div>
     </section>
-
   </article>
 </main>
 

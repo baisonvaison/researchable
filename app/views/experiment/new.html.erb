@@ -62,7 +62,9 @@
 
                 <div class="form-group col-md-5 mb-5">
                   <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
+                   <div class="choice mb-3">
                   <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
+                  </div>
                   <%= f.text_field :new_category, class: "form-control" %>
                 </div>
                 <div class="form-group mb-5">
@@ -70,10 +72,11 @@
                   <div class="col-md-5">
                     <%= text_field_tag :tag_list, @experiment.tag_list, :class => "form-control" %>
                   </div>
-                </div>    
-                <button class="btn btn-register">
-                  <%= f.submit "登録する", class: 'btn-Atag' %>
-                </button>
+                </div>
+
+                <div class="register text-center">
+                   <%= f.submit "登録する", class: 'btn-Atag', style:"cursor: pointer" %>
+                </div>
             <% end %>
           </div>
         </div>

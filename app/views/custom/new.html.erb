@@ -6,7 +6,7 @@
 <main class="MakeCustom-screen wf-roundedmplus1c">
   <article>
     <section id="BGP-researchable" style="">
-      <div class="BGP-Opacity1" style="padding: 125px 0px 0px;">
+      <div class="BGP-Opacity1 pb-1" style="padding: 125px 0px 0px;">
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-1"></div>
@@ -21,7 +21,7 @@
           <div class="col-1"></div>
             <div class="col-10">
                 <div class="form-group mb-5">
-                  <label class="col-md-8 col-form-label mb-2" for="B_Name">タイトル（カスタムプロトコルの名称）</label>
+                  <label class="col-md-8 col-form-label mb-2" for="B_Name">タイトル（プロトコルの名称）</label>
                   <div class="col-md-8">
                     <%= f.text_field :title, class: "form-control", id: "B_Name" %>
                   </div>
@@ -48,6 +48,7 @@
                     </button>
                   </div>
                 </div> -->
+            </div>
           </div>
         </div>                <!-- 全体を囲むコンテナ -->
         <div class="container-fluid">
@@ -55,22 +56,26 @@
             <div class="col-1"></div>
               <div class="col-10">
                   <div class="form-group col-md-8 mb-4">
+                    <div class="choice-category mt-5 mb-1">
                     <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
-                    <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
-                    <%= f.text_field :new_category, class: "form-control" %>
+                    </div>
+                    <div class="choice mb-3">
+                      <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
+                    </div>
+                      <%= f.text_field :new_category, class: "form-control col-md-7" %>
                   </div>
                   <div class="form-group col-md-8 mb-4">
-                    <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-4 col-form-label mb-2" %>
-                    <%= f.text_field :tag_list, class: "form-control" %>
+                    <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-8 col-form-label mb-2" %>
+                    <%= f.text_field :tag_list, class: "form-control col-md-7" %>
                   </div>
-
-                    <%= f.hidden_field :parent_id %>
-                    <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
-                  <% end %>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>                <!-- 全体を囲むコンテナ -->
+            <div class="register">
+              <%= f.hidden_field :parent_id %>
+                <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
+              <% end %>
+            </div>
+        </div>                <!-- 全体を囲むコンテナ -->
       </div>
     </section>
   </article>

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     get  'experiment/show/:id' => 'experiment#show', as: "experiment_show"
     get  'experiment/new' => 'experiment#new', as: "new_experiment"
     post 'experiment/new' => 'experiment#create', as: "experiments"
-    
+
   #コメント
     post 'experiment/show/:id' => 'experiment#comment_create', as: "comments"
 

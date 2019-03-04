@@ -4,6 +4,7 @@ class Protocol < ApplicationRecord
   belongs_to :category
   has_many :procedures, inverse_of: :protocol, dependent: :destroy
   has_many :experiments
+  has_many :comments
 
   attr_accessor :new_category
 

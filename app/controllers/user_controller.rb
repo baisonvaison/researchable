@@ -9,10 +9,6 @@ class UserController < ApplicationController
     @users = User.where(affiliation_id: @labo.id).page(params[:page]).per(12)
   end
 
-  def new
-
-  end
-
 
   def show
       @user = User.find(params[:id])
@@ -21,4 +17,5 @@ class UserController < ApplicationController
       @experiments = Experiment.where(user_id: @user.id).order(id: :asc).page(params[:page]).per(6)
   end
   
+
 end

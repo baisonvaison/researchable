@@ -31,11 +31,10 @@ class ExperimentController < ApplicationController
   
   def new
     @experiment = current_user.experiments.build
-    @protocols = Protocol.where(affiliation_id: current_user.affiliation_id)
+    @protocol = Protocol.find(params[:protocol_id])
   end
   
   def create
-    @protocols = Protocol.where(affiliation_id: current_user.affiliation_id)
     @experiment = current_user.experiments.build(experiment_params)
     @experiment[:affiliation_id] = current_user.affiliation_id
     new_category_save if !@experiment.new_category.empty?

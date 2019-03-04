@@ -59,14 +59,16 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-    # default url
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  #ローカル環境で作業している人用
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # mail setting
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
+    :domain => 'smtp.gmail.com',
     :user_name => "researchable0214@gmail.com",
     :password => "TAKEDA77",
     :authentication => :plain,

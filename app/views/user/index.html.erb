@@ -8,31 +8,27 @@
   <article>
     <section id="BGP-researchable">
       <div class="BGP-Opacity1" style="padding-top: 100px;">
-<div class="container">
-  <h1 class="R-TitleName3"><strong>~研究室：<%= @labo.labo %>~</strong></h1>
-  <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/member.png" style="">所属メンバー</h2>
-</div>
-<div class="container">        <!-- 全体を囲むコンテナ -->
-  <div class="d-sm-flex flex-wrap text-black">
-    <% @users.each do |user| %>
-      <div class="bg-info p-3 mb-2 mr-sm-2 Member-Box">
-        <%= link_to user_show_path(user), class: "A-Tag" do %>
-        <class="media A-TagEffect">
-          <%#= image_tag user.avatar.url, class: "Member-Avatar mr-3" %>
-          <div class="media-body" style="">
-            <h4><%= "Adimn: " if user.admin %><%= user.last_name + " " + user.first_name %></h4>
-          </div>
+        <div class="container">
+          <h1 class="R-TitleName3"><strong>~研究室：<%= @labo.labo %>~</strong></h1>
+          <h2 class="my-5"><img class="icon-blank" src="/assets/Admin/member.png" style="">所属メンバー</h2>
         </div>
-        <% end %>
-      </div>
-    <% end %>
-    <%= paginate @users %>
-  
-    </div>
-
-  </div>
-
-</div>        <!-- 全体を囲むコンテナ -->
+        <div class="container">        <!-- 全体を囲むコンテナ -->
+          <div class="d-sm-flex flex-wrap text-black">
+            <% @users.each do |user| %>
+              <div class="bg-info p-3 mb-2 mr-sm-2 Member-Box">
+                <%= link_to user_show_path(user), class: "A-Tag" do %>
+                <div class="media A-TagEffect">
+                  <%#= image_tag user.avatar.url, class: "Member-Avatar mr-3" %>
+                  <div class="media-body" style="">
+                    <h4><%= "Adimn: " if user.admin %><%= user.last_name + " " + user.first_name %></h4>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            <% end %>
+            <%= paginate @users %>
+          </div>
+        </div>        <!-- 全体を囲むコンテナ -->
       </div>
     </section>
   </article>

@@ -18,9 +18,9 @@ default: &default
   #このエラー、あまりにも出すぎなので先周り（周回遅れ）で記述
   #環境に応じてアクティブにするものを変更
   #Mac用の記述↓
-  #socket: /tmp/mysql.sock
+  socket: /tmp/mysql.sock
   #linux用の記述↓
-  socket: /var/lib/mysql/mysql.sock
+  # socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default

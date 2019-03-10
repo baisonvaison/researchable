@@ -38,12 +38,13 @@ class ExperimentController < ApplicationController
     @experiment = current_user.experiments.build(experiment_params)
     @experiment[:affiliation_id] = current_user.affiliation_id
     new_category_save if !@experiment.new_category.empty?
+    binding.pry
     if @experiment.save
       flash[:notice] = "実験結果が登録されました。"
       redirect_to experiment_show_path(@experiment)
     else
       flash[:alert] = 'エラーが発生しました。'
-      render 'new'
+      redirect_back(fallback_location: root_path)
     end
   end
   

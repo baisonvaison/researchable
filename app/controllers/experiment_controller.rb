@@ -43,7 +43,7 @@ class ExperimentController < ApplicationController
       redirect_to experiment_show_path(@experiment)
     else
       flash[:alert] = 'エラーが発生しました。'
-      render 'new'
+      redirect_back(fallback_location: root_path)
     end
   end
   

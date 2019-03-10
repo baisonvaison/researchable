@@ -174,7 +174,10 @@ header{
   padding: 20px 10px;
 }
 
-
+/*プロトコルのリンクボタンのレイアウト*/
+.transition-btn-wrapper {
+  text-align: center;
+}
 
 
 /*--------登録完了画面----------*/

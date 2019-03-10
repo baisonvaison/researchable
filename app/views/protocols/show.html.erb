@@ -47,9 +47,17 @@
           <div class="row justify-content-center">
             <div class="col-0"></div>
               <div class="col-10">
-                <%= link_to "これをカスタム
-                ", custom_new_path(parent_id: @protocol.id), class: "btn btn-outline-primary" %>
-            </div>
+                <div class="row">
+                  <div class="col-6 transition-btn-wrapper">
+                    <%= link_to "これをカスタム
+                    ", custom_new_path(parent_id: @protocol.id), class: "btn btn-outline-primary" %>
+                  </div>
+                  <div class="col-6 transition-btn-wrapper">
+                    <%= link_to "実験結果を登録
+                    ", new_experiment_path(protocol_id: @protocol.id), class: "btn btn-outline-primary" %>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>                <!-- 全体を囲むコンテナ -->

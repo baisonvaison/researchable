@@ -18,13 +18,13 @@
                     <%= f.password_field :password, autofocus: true, autocomplete: "new_password", placeholder: "6文字以上の半角英数字", class: "form-control" %>
                   </div>
                 </div>
-                
+
                 <div class = "form-group form-row" >
                     <%= f.label :password_confirmation, "新しいパスワード", class: "col-form-label text-md-left mb-4" %><br/>
                     <div class="col-md-6">
                         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "確認のためもう一度入力してください。", class: "form-control" %>
                     </div>
-                </div>        
+                </div>
                 <div class="form-row">
                   <div class="col-9 text-center">
                     <%= f.submit "パスワードを変更する。", class: "btn btn-outline-primary" %>

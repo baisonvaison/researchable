@@ -11,8 +11,8 @@
         <div class="container">        <!-- 全体を囲むコンテナ -->
           <div class="row">
             <div class="col-md-7">
-              <h1 class=""><strong>検索ワードを一つ入力してください。<br/>
-             </strong><span style="font-size: 27px;">検索ワード：<%= @keyword%></span></h1>
+              <h3 class=""><strong>検索ワードを一つ入力してください。<br/>
+             </strong><h5>検索ワード：<%= @keyword%></h5></h3>
             </div>
             <div class="col-md-5 mt-2">
               <%= form_tag search_path, method: 'get', class: "form-inline ml-auto" do %>

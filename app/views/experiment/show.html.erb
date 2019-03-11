@@ -21,6 +21,11 @@
           <div class="row justify-content-center">
             <div class="col-md-4">
               <%= image_tag @experiment.image.url, class: "img-fluid", style: "height: 200px; width: auto; border-radius: 5px;" %>
+              <div class="Tag">        <!-- 全体を囲むコンテナ -->
+                <% @experiment.tag_list.each do |tag| %>
+                  <span class="badge badge-primary mr-1 p-2= tag"><%= link_to tag, experiment_path(tag_name: tag), class: "text-white" %></span>
+                <% end %>
+              </div>
             </div>
             <div class="col-md-6 mt-4 mt-md-0">
               <p class="experiment-time">実験実施日<br>
@@ -44,46 +49,44 @@
         </div>
         </div>
         <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5" style="margin-top: 20px">
+              <h4>実験の結果</h4>
+              <hr class="mt-0 mb-4">
+              <p><%= @experiment.result %>
+               </p>
+            </div>
+          </div>
+        </div>
+          <div class="container-fluid mb-5">        <!-- 全体を囲むコンテナ -->
+            <div class="row justify-content-center">
+              <div class="col-md-10 mt-3">
+                <% @comments.each do |comment|%>
+                  <%= comment.user.last_name + " " + comment.user.first_name %>
+                  <%= comment.comment %><br/>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <div class="container-fluid mb-5">        <!-- 全体を囲むコンテナ -->
         <div class="row justify-content-center">
-          <div class="col-md-10 mt-5" style="margin-top: 20px">
-            <h4>実験の結果</h4>
-            <hr class="mt-0 mb-4">
-            <p><%= @experiment.result %>
-             </p>
+          <div class="col-md-10">
+            <div class="COMMENT">
+              <%= form_for @comment, url: comments_path do |f| %>
+              <div class="comment1">
+                <%= f.text_area :comment, class: "col-md-6 mb-2" %>
+              </div>
+              <div class="comment2">
+                <%= f.submit "コメントする" %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-10 mt-5" style="margin-top: 20px">
-            <h4>タグ</h4>
-            <hr class="mt-0 mb-4">
-            <% @experiment.tag_list.each do |tag| %>
-              <span class="badge badge-primary mr-1 p-2= tag"><%= link_to tag, experiment_path(tag_name: tag), class: "text-white" %></span>
-            <% end %>
-          </div>
-        </div>
-        </div>
-          <div>
-            <% @comments.each do |comment|%>
-              <%= comment.user.last_name + " " + comment.user.first_name %>
-              <%= comment.comment %><br/>
-            <% end %>
-          </div>
-            <%= form_for @comment, url: comments_path do |f| %>
-              <%= f.label :comment, "コメントを入力" %>
-              <%= f.text_area :comment, row: 3 %>
-              <%= f.submit "コメントする" %>
-            <% end %>
       </div>
     </section>
-
   </article>
 </main>
-
-
-
-
-
-
 
 
 

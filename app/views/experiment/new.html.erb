@@ -8,75 +8,80 @@
   <article>
     <section id="BGP-researchable">
        <div class="BGP-Opacity6">
-        <div class="container">        <!-- 全体を囲むコンテナ -->
-        <div class="row justify-content-center">
-          <div class="col-0"></div>
-            <div class="col-11">
-              <div class="col-md-8">
-                <h1 class="mt-4 mb-5"><img class="icon-blank" src="/assets/Admin/result.png"><strong>実験結果作成</strong></h1>
+        <div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+          <div class="row justify-content-center">
+            <div class="col-0"></div>
+              <div class="col-11">
+                <div class="col-md-8">
+                  <h1 class="mt-4 mb-5"><img class="icon-blank" src="/assets/Admin/result.png"><strong>実験結果作成</strong></h1>
+                </div>
               </div>
-            </div>
-          <div class="col-0"></div>
-            <div class="col-10">
-              <%= form_for @experiment do |f| %>
-                <div class="form-group mb-5">
-                  <%= f.label :title, 'タイトル（実験名称）', class: "col-md-4 col-form-label mb-2" %>
-                  <div class="col-md-5">
-                    <%= f.text_field :title, class: "form-control" %>
-                  </div>
-                </div>
-
-                <div class="form-group col-md-5 mb-5">
-                  <%= f.label :protocol_id, '利用したプロトコル'%>
-                  <%= @protocol.title %>
-                  <%= f.hidden_field :protocol_id, value: @protocol.id %>
-                </div>
-
-                <div class="form-group mb-5">
-                  <%= f.label :image, '画像資料', class: "col-md-4 col-form-label mb-2" %>
-                  <div class="col-md-5">
-                    <%= f.file_field :image %>
-                  </div>
-                </div>
-
-                <div class="form-group mb-5">
-                  <%= f.label :date, '実験実施日', class: "col-md-4 col-form-label mb-2" %>
-                  <div class="col-md-5">
-                    <%= f.date_select :date %>
-                  </div>
-                </div>
-
-                 <div class="form-group mb-5">
-                    <%= f.label :overview, '実験の概要', class: "col-md-3 col-form-label" %>
-                    <div class="col-md-9" style="max-width: 100%;">
-                      <%= f.text_area :overview, rows: "7", class: "form-control" %>
+            <div class="col-0"></div>
+              <div class="col-10">
+                <%= form_for @experiment do |f| %>
+                  <div class="form-group mb-5">
+                    <%= f.label :title, 'タイトル（実験名称）', class: "col-md-4 col-form-label mb-2" %>
+                    <div class="col-md-5">
+                      <%= f.text_field :title, class: "form-control" %>
                     </div>
                   </div>
 
-                <div class="form-group mb-5">
-                  <%= f.label :result, '実験の結果', class: "col-md-3 col-form-label" %>
-                  <div class="col-md-9" style="max-width: 100%;">
-                    <%= f.text_area :result, rows: "7", class: "form-control" %>
+                  <div class="form-group col-md-5 mb-5">
+                    <%= f.label :protocol_id, '利用したプロトコル'%>
+                    <%= @protocol.title %>
+                    <%= f.hidden_field :protocol_id, value: @protocol.id %>
                   </div>
-                </div>
 
-                <div class="form-group col-md-5 mb-5">
-                  <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
-                  <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
-                  <%= f.text_field :new_category, class: "form-control" %>
-                </div>
-                <div class="form-group mb-5">
-                  <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-4 col-form-label mb-2" %>
-                  <div class="col-md-5">
-                    <%= text_field_tag :tag_list, @experiment.tag_list, :class => "form-control" %>
+                  <div class="form-group mb-5">
+                    <%= f.label :image, '画像資料', class: "col-md-4 col-form-label mb-2" %>
+                    <div class="col-md-5">
+                      <%= f.file_field :image %>
+                    </div>
                   </div>
-                </div>    
-                <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
+
+                  <div class="form-group mb-5">
+                    <%= f.label :date, '実験実施日', class: "col-md-4 col-form-label mb-2" %>
+                    <div class="col-md-5">
+                      <%= f.date_select :date %>
+                    </div>
+                  </div>
+
+                   <div class="form-group mb-5">
+                      <%= f.label :overview, '実験の概要', class: "col-md-3 col-form-label" %>
+                      <div class="col-md-9" style="max-width: 100%;">
+                        <%= f.text_area :overview, rows: "7", class: "form-control" %>
+                      </div>
+                    </div>
+
+                  <div class="form-group mb-5">
+                    <%= f.label :result, '実験の結果', class: "col-md-3 col-form-label" %>
+                    <div class="col-md-9" style="max-width: 100%;">
+                      <%= f.text_area :result, rows: "7", class: "form-control" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-5 mb-5">
+                    <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
+                    <div class="choice mb-3">
+                      <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
+                    </div>
+                      <%= f.text_field :new_category, class: "form-control" %>
+                  </div>
+                  <div class="form-group mb-5">
+                    <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-4 col-form-label mb-2" %>
+                    <div class="col-md-5">
+                      <%= text_field_tag :tag_list, @experiment.tag_list, :class => "form-control" %>
+                    </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="register text-center">
+            <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
             <% end %>
           </div>
-        </div>
+        </div>               <!-- 全体を囲むコンテナ -->
       </div>
-      </div>                <!-- 全体を囲むコンテナ -->
     </section>
   </article>
 </main>

@@ -5,8 +5,8 @@
 
 <main class="MakeCustom-screen wf-roundedmplus1c">
   <article>
-    <section id="BGP-researchable" style="">
-      <div class="BGP-Opacity1" style="padding: 125px 0px 0px;">
+    <section id="BGP-researchable">
+      <div class="BGP-Opacity1" style="padding: 125px 0px 25px;">
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-1"></div>
@@ -56,18 +56,21 @@
               <div class="col-10">
                   <div class="form-group col-md-8 mb-4">
                     <%= f.label :category_id, 'カテゴリーを選択するか、新しいカテゴリー名を入力してください。' %>
-                    <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
-                    <%= f.text_field :new_category, class: "form-control" %>
+                    <div class="choice mb-3">
+                      <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: "選択", class: "custom-select" %>
+                    </div>
+                      <%= f.text_field :new_category, class: "form-control" %>
                   </div>
                   <div class="form-group col-md-8 mb-4">
-                    <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-4 col-form-label mb-2" %>
+                    <%= f.label :tag_list, "タグ(カンマで区切ってください)", class: "col-md-8 col-form-label mb-2" %>
                     <%= f.text_field :tag_list, class: "form-control" %>
                   </div>
-
-                    <%= f.hidden_field :parent_id %>
-                    <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
-                  <% end %>
             </div>
+          </div>
+          <div class="register text-center">
+            <%= f.hidden_field :parent_id %>
+            <%= f.submit "登録する", class: 'btn btn-outline-primary btn-register' %>
+            <% end %>
           </div>
         </div>
       </div>                <!-- 全体を囲むコンテナ -->
